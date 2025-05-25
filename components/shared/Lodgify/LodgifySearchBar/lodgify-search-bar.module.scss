@@ -1,0 +1,22 @@
+.lodgify-search-bar-root {
+  --ldg-psb-background: #ffffff;
+  --ldg-psb-border-radius: 0.42em;
+  --ldg-psb-box-shadow: 0px 24px 54px 0px rgba(0, 0, 0, 0.1);
+  --ldg-psb-padding: 14px;
+  --ldg-psb-input-background: #ffffff;
+  --ldg-psb-button-border-radius: 3.58em;
+  --ldg-psb-color-primary: #e11d48;
+  --ldg-psb-color-primary-lighter:#f08ea4;
+  --ldg-psb-color-primary-darker: #710f24;
+  --ldg-psb-color-primary-contrast: #ffffff;
+  --ldg-semantic-color-primary:  #e11d48;
+  --ldg-semantic-color-primary-lighter: #f08ea4;
+  --ldg-semantic-color-primary-darker: #710f24;
+  --ldg-semantic-color-primary-contrast: #ffffff;
+  --ldg-component-modal-z-index: 999;
+}
+#lodgify-search-bar {
+  position: relative;
+  z-index: 999;
+  width:100%;
+}
