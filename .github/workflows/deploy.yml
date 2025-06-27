@@ -54,8 +54,8 @@ jobs:
           key: ${{ secrets.DO_SSH_KEY }}
           port: 22
           script: |
-            ls -lh ~/cozy-voyage.tar
-            file ~/cozy-voyage.tar
+            ls -lh ~/output/cozy-voyage.tar
+            file ~/output/cozy-voyage.tar
 
       - name: Debug files on server
         uses: appleboy/ssh-action@v1.0.0
@@ -75,7 +75,7 @@ jobs:
           key: ${{ secrets.DO_SSH_KEY }}
           port: 22
           script: |
-            docker load -i ~/cozy-voyage.tar
+            docker load -i ~/output/cozy-voyage.tar
             docker stop cozy-voyage || true
             docker rm cozy-voyage || true
             docker run -d --name cozy-voyage -p 3011:3011 --restart unless-stopped cozy-voyage:latest
