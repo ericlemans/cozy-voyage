@@ -21,7 +21,7 @@ jobs:
 
       - name: Save Docker image as tar
         run: |
-          docker save cozy-voyage:latest -o cozy-voyage.tar
+          docker save cozy-voyage:latest -o /tmp/cozy-voyage.tar
 
       - name: Copy Docker image to droplet via SCP
         uses: appleboy/scp-action@v0.1.7
@@ -29,7 +29,7 @@ jobs:
           host: ${{ secrets.DO_SSH_HOST }}
           username: ${{ secrets.DO_SSH_USERNAME }}
           key: ${{ secrets.DO_SSH_KEY }}
-          source: "cozy-voyage.tar"
+          source: "/tmp/cozy-voyage.tar"
           target: "~/cozy-voyage"
 
       - name: Load Docker image and run container on droplet
