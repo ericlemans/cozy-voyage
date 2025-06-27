@@ -41,7 +41,7 @@ export default function Header() {
         </a>
 
         <Button className="bg-rose-600 text-white rounded-md">
-          BOOK NOW
+          JETZT BUCHEN
         </Button>
       </NavbarContent>
     </Navbar>
