@@ -1,14 +1,23 @@
+name: Build and Deploy Docker
+
+on:
+  push:
+    branches: [main]
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
       - name: Build Docker image
-        run: docker build -t cozy-voyage:latest .
+        run: |
+          docker build -t cozy-voyage:latest .
 
       - name: Save Docker image as tar
         run: |
@@ -16,7 +25,7 @@ jobs:
           docker save cozy-voyage:latest -o output/cozy-voyage.tar
           chmod 644 output/cozy-voyage.tar
 
-      - name: Clean remote target path
+      - name: Ensure remote target is clean
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.DO_SSH_HOST }}
@@ -26,7 +35,7 @@ jobs:
           script: |
             rm -rf ~/cozy-voyage.tar
 
-      - name: Upload Docker tar file
+      - name: Upload Docker tar to remote server
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.DO_SSH_HOST }}
@@ -34,9 +43,9 @@ jobs:
           key: ${{ secrets.DO_SSH_KEY }}
           port: 22
           source: output/cozy-voyage.tar
-          target: ~
+          target: ~/
 
-      - name: Load image and start container
+      - name: Load image and start container on remote server
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.DO_SSH_HOST }}
