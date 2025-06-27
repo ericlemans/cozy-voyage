@@ -23,7 +23,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Inter, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -43,4 +43,22 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+h1 {
+  color: #fff;
+  font-size: 48px;
+  font-weight: 600;
+}
+
+h2 {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+h3 {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 500;
 }

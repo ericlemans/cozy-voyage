@@ -13,6 +13,7 @@ export default function PropertyCard({city, location, imgSrc}: {city: string, lo
           className="object-cover rounded-xl"
           src={imgSrc}
           width={270}
+          height={200}
         />
       </CardBody>
     </Card>

@@ -1,11 +1,14 @@
 import { Button, Link, Navbar, NavbarBrand, NavbarContent, NavbarItem } from '@heroui/react';
+import Image from 'next/image';
 
 export default function Header() {
   return (
     <Navbar shouldHideOnScroll className="bg-white opacity-90 fixed" maxWidth='2xl' height={80}>
       <NavbarContent justify="center">
-        <NavbarBrand className="mr-4 w-fit">
-          <img width={140} src={'/assets/logos/Cozy-Voyage-Logo.svg'} alt="Cozy Voyage" />
+        <NavbarBrand className="mr-4 w-fit h-full">
+          <div className='w-[140px] h-full relative'>
+            <Image fill src={'/assets/logos/Cozy-Voyage-Logo.svg'} alt="Cozy Voyage" />
+          </div>
         </NavbarBrand>
         <NavbarContent className="hidden sm:flex gap-3">
           <NavbarItem>
@@ -28,8 +31,8 @@ export default function Header() {
 
       <NavbarContent as="div" className="items-center gap-10" justify="end">
         <a href="https://wa.me/4915778194349" target="_blank" className="flex gap-3 flex-row items-center">
-          <div className="h-8 w-8">
-            <img src={'/assets/icons/Whatsapp icon.svg'} alt={'Whatsapp icon'} />
+          <div className="h-8 w-8 relative">
+            <Image fill src={'/assets/icons/Whatsapp icon.svg'} alt={'Whatsapp icon'} />
           </div>
           <div className="flex flex-col">
             <span className="text-black text-small">+4915778194349</span>
