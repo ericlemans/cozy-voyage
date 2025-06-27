@@ -45,6 +45,17 @@ jobs:
           source: output/cozy-voyage.tar
           target: ~/
 
+      - name: Verify remote tar file
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.DO_SSH_HOST }}
+          username: ${{ secrets.DO_SSH_USERNAME }}
+          key: ${{ secrets.DO_SSH_KEY }}
+          port: 22
+          script: |
+            ls -lh ~/cozy-voyage.tar
+            file ~/cozy-voyage.tar
+
       - name: Load image and start container on remote server
         uses: appleboy/ssh-action@v1.0.0
         with:
