@@ -21,8 +21,8 @@ jobs:
 
       - name: Save Docker image as tar
         run: |
-          mkdir -p ./output
-          docker save cozy-voyage:latest -o ./output/cozy-voyage.tar
+          mkdir -p $GITHUB_WORKSPACE/output
+          docker save cozy-voyage:latest -o $GITHUB_WORKSPACE/output/cozy-voyage.tar
 
       - name: Copy Docker image to droplet via SCP
         uses: appleboy/scp-action@v0.1.7
