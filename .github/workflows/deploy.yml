@@ -25,16 +25,16 @@ jobs:
           docker save cozy-voyage:latest -o output/cozy-voyage.tar
           chmod 644 output/cozy-voyage.tar
 
-      - name: Copy Docker image to droplet via SCP
+      - name: Copy Docker image to server
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.DO_SSH_HOST }}
           username: ${{ secrets.DO_SSH_USERNAME }}
           key: ${{ secrets.DO_SSH_KEY }}
-          source: "output/cozy-voyage.tar"
-          target: "~"
+          source: output/cozy-voyage.tar
+          target: ~/cozy-voyage.tar
 
-      - name: Load Docker image and run container on droplet
+      - name: Load Docker image and run container
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.DO_SSH_HOST }}
@@ -45,3 +45,4 @@ jobs:
             docker stop cozy-voyage || true
             docker rm cozy-voyage || true
             docker run -d --name cozy-voyage -p 3011:3011 cozy-voyage:latest
+
