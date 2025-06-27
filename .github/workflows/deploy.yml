@@ -35,6 +35,7 @@ jobs:
           script: |
             rm -rf ~/cozy-voyage.tar
 
+
       - name: Upload Docker tar to remote server
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -43,7 +44,8 @@ jobs:
           key: ${{ secrets.DO_SSH_KEY }}
           port: 22
           source: output/cozy-voyage.tar
-          target: /
+          target: "~"
+
 
       - name: Verify remote tar file
         uses: appleboy/ssh-action@v1.0.0
@@ -53,8 +55,8 @@ jobs:
           key: ${{ secrets.DO_SSH_KEY }}
           port: 22
           script: |
-            ls -lh /cozy-voyage.tar
-            file /cozy-voyage.tar
+            ls -lh ~/cozy-voyage.tar
+            file ~/cozy-voyage.tar
 
       - name: Load image and start container on remote server
         uses: appleboy/ssh-action@v1.0.0
@@ -64,7 +66,7 @@ jobs:
           key: ${{ secrets.DO_SSH_KEY }}
           port: 22
           script: |
-            docker load -i /cozy-voyage.tar
+            docker load -i ~/cozy-voyage.tar
             docker stop cozy-voyage || true
             docker rm cozy-voyage || true
             docker run -d --name cozy-voyage -p 3011:3011 --restart unless-stopped cozy-voyage:latest
