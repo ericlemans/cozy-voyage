@@ -25,12 +25,22 @@ jobs:
           docker save cozy-voyage:latest -o output/cozy-voyage.tar
           chmod 644 output/cozy-voyage.tar
 
+      - name: Clean up remote target before upload
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.DO_SSH_HOST }}
+          username: ${{ secrets.DO_SSH_USERNAME }}
+          key: ${{ secrets.DO_SSH_KEY }}
+          port: 22
+          script: rm -rf ~/cozy-voyage.tar
+
       - name: Copy Docker image to server
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.DO_SSH_HOST }}
           username: ${{ secrets.DO_SSH_USERNAME }}
           key: ${{ secrets.DO_SSH_KEY }}
+          port: 22
           source: output/cozy-voyage.tar
           target: ~/cozy-voyage.tar
 
@@ -40,9 +50,9 @@ jobs:
           host: ${{ secrets.DO_SSH_HOST }}
           username: ${{ secrets.DO_SSH_USERNAME }}
           key: ${{ secrets.DO_SSH_KEY }}
+          port: 22
           script: |
             docker load -i ~/cozy-voyage.tar
             docker stop cozy-voyage || true
             docker rm cozy-voyage || true
-            docker run -d --name cozy-voyage -p 3011:3011 cozy-voyage:latest
-
+            docker run -d --name cozy-voyage -p 3011:3011 --restart unless-stopped cozy-voyage:latest
