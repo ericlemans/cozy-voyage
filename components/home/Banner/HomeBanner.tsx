@@ -14,7 +14,7 @@ const HomeBanner = () => {
         <div className="z-20 top-[235px] absolute w-full flex flex-col items-center justify-center h-fit gap-3">
           <h1>Cozy Voyage</h1>
           <div className="w-52 border-b-2" />
-          <h3 className="mb-2">Beautifulll and stylish holiday apartments.</h3>
+          <h3 className="mb-2">Beautiful and stylish holiday apartments.</h3>
           {/*<CozyButton href="/home" size="lg" className="bg-rose-600">*/}
           {/*  <span className="text-large font-medium text-white">All Properties</span>*/}
           {/*</CozyButton>*/}
