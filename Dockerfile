@@ -5,7 +5,7 @@ WORKDIR /app
 
 # Install all deps for build
 COPY package*.json ./
-RUN npm ci
+RUN npm i
 
 # Copy everything and build Next.js
 COPY . .
@@ -25,8 +25,6 @@ COPY --from=builder /app ./
 
 # Open port for Next.js
 EXPOSE 3011
-ENV PORT 3011
-ENV HOSTNAME "0.0.0.0"
 HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD [ "wget", "-q0", "http://localhost:3011/health" ]
 
 
