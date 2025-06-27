@@ -1,0 +1,45 @@
+name: Build and Deploy Docker
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: |
+          docker build -t cozy-voyage:latest .
+
+      - name: Save Docker image as tar
+        run: |
+          docker save cozy-voyage:latest -o cozy-voyage.tar
+
+      - name: Copy Docker image to droplet via SCP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.DO_SSH_HOST }}
+          username: ${{ secrets.DO_SSH_USERNAME }}
+          key: ${{ secrets.DO_SSH_KEY }}
+          source: "cozy-voyage.tar"
+          target: "~/cozy-voyage"
+
+      - name: Load Docker image and run container on droplet
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.DO_SSH_HOST }}
+          username: ${{ secrets.DO_SSH_USERNAME }}
+          key: ${{ secrets.DO_SSH_KEY }}
+          script: |
+            docker load -i cozy-voyage.tar
+            docker stop cozy-voyage || true
+            docker rm cozy-voyage || true
+            docker run -d --name cozy-voyage -p 3011:3011 cozy-voyage:latest
