@@ -39,6 +39,7 @@ jobs:
           username: ${{ secrets.DO_SSH_USERNAME }}
           key: ${{ secrets.DO_SSH_KEY }}
           script: |
+            cd ~/cozy-voyage
             docker load -i cozy-voyage.tar
             docker stop cozy-voyage || true
             docker rm cozy-voyage || true
