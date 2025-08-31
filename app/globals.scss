@@ -11,6 +11,12 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+
+    h2 {
+      color: #fff;
+      font-size: 32px;
+      font-weight: 600;
+    }
   }
 }
 
@@ -52,7 +58,7 @@ h1 {
 }
 
 h2 {
-  color: #fff;
+  color: black;
   font-size: 32px;
   font-weight: 600;
 }
