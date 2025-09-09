@@ -39,10 +39,10 @@ const Properties = () => {
   ];
 
   return (
-    <div className="h-fit mb-10">
+    <div className="h-fit mb-36">
       <h2 className="mb-8">Unsere Wohnungen</h2>
 
-      <div className="flex-row justify-start flex gap-6 flex-wrap">
+      <div className="flex-row lg-justify-start justify-center flex gap-6 flex-wrap">
         {properties.map((property, index) => (
           <div key={index}>
             <PropertyCard
