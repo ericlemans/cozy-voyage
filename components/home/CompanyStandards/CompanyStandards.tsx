@@ -49,7 +49,7 @@ const CompanyStandards = () => {
             </div>
             <div className="flex flex-col w-2/3">
               <h3>Mit Liebe gestaltete Wohnungen</h3>
-              <p>"Cozy" ist in unserer DNA. Wir sorgen dafür, dass du einen schönen und funktionalen Aufenthalt hast.
+              <p>Cozy ist in unserer DNA. Wir sorgen dafür, dass du einen schönen und funktionalen Aufenthalt hast.
                 Unser oberstes Ziel ist es, unseren Gästen einen unvergesslichen Urlaub zu bereiten.</p>
             </div>
           </div>
