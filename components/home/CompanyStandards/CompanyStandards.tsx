@@ -5,7 +5,7 @@ import style from './company-standards.module.scss';
 
 const CompanyStandards = () => {
   return (
-    <div className={`${style.companyStandards} h-fit mx-4 bg-white`}>
+    <div className={`${style.companyStandards} py-[50px] md:px-[30px] px-[15px]`}>
       <div className='p-4'>
       <h2 className='mb-3'>WAS DU ERWARTEN KANNST</h2>
       <h4 className="mb-8">

@@ -5,7 +5,7 @@ import CityCard from '@/components/home/Cards/CityCard';
 
 const HomeBanner = () => {
   return (
-    <div className="md:mb-44 mb-[480px]">
+    <div className="md:mb-[350px] mb-[540px]">
       <div className="h-screen relative w-full">
         <Image className="z-0" style={{ objectFit: 'cover' }} src={'/assets/images/Berlin_Ks_1.jpeg'}
                alt="Berlin Wittenbergplatz"
