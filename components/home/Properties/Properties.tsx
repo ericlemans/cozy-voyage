@@ -1,5 +1,6 @@
 import React from 'react';
 import PropertyCard from '@/components/home/Cards/PropertyCard';
+import { Divider } from '@heroui/react';
 
 const Properties = () => {
 
@@ -39,23 +40,27 @@ const Properties = () => {
   ];
 
   return (
-    <div className="h-fit mb-36 px-4">
-      <h2 className="mb-8">Unsere Wohnungen</h2>
+    <div id="properties" className="h-fit py-16 md:py-24 px-4 md:px-[30px]">
+      <div className="p-4">
 
-      <div className="flex-row lg-justify-start justify-center flex gap-6 flex-wrap">
-        {properties.map((property, index) => (
-          <div key={index}>
-            <PropertyCard
-              title={property.title}
-              location={property.location}
-              image={property.image}
-              guests={property.guests}
-              minPrice={property.minPrice}
-              href={property.href}
-            />
-          </div>
-        ))}
+        <h2 className="mb-4 text-center md:text-left uppercase !text-black">Unsere Wohnungen</h2>
+        <Divider className="mb-12 w-1/2 md:w-[340px] mx-auto md:mx-0" />
 
+        <div className="flex-row lg-justify-start justify-center flex gap-6 flex-wrap">
+          {properties.map((property, index) => (
+            <div key={index}>
+              <PropertyCard
+                title={property.title}
+                location={property.location}
+                image={property.image}
+                guests={property.guests}
+                minPrice={property.minPrice}
+                href={property.href}
+              />
+            </div>
+          ))}
+
+        </div>
       </div>
     </div>
   );

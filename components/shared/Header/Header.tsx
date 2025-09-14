@@ -3,27 +3,32 @@ import Image from 'next/image';
 
 export default function Header() {
   return (
-    <Navbar shouldHideOnScroll className="bg-white opacity-90 fixed" maxWidth='2xl' height={80}>
+    <Navbar shouldHideOnScroll className="bg-white opacity-90 fixed" maxWidth="2xl" height={80}>
       <NavbarContent justify="center">
         <NavbarBrand className="mr-4 w-fit h-full">
-          <div className='w-[140px] h-full relative'>
+          <a href='/' className="w-[140px] h-full relative">
             <Image fill src={'/assets/logos/Cozy-Voyage-Logo.svg'} alt="Cozy Voyage" />
-          </div>
+          </a>
         </NavbarBrand>
         <NavbarContent className="hidden sm:flex gap-3">
           <NavbarItem>
-            <Link color="foreground" href="#">
-              Features
-            </Link>
-          </NavbarItem>
-          <NavbarItem isActive>
-            <Link aria-current="page" color="secondary" href="#">
-              Customers
+            <Link color="foreground" href={'#properties'}>
+              Unterkünfte
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link color="foreground" href="#">
-              Integrations
+            <Link color='foreground' href={'#our-company'}>
+              Was wir anbieten
+            </Link>
+          </NavbarItem>
+          <NavbarItem>
+            <Link color="foreground" href={'#gallery'}>
+              Galerie
+            </Link>
+          </NavbarItem>
+          <NavbarItem>
+            <Link color="foreground" href={'#testimonials'}>
+              Bewertungen
             </Link>
           </NavbarItem>
         </NavbarContent>
@@ -40,9 +45,11 @@ export default function Header() {
           </div>
         </a>
 
-        <Button className="bg-rose-600 text-white rounded-md">
-          JETZT BUCHEN
-        </Button>
+        <Link target='_blank' href={'https://cozy-voyage.lodgify.com/de/4578016/alle-objekte'}>
+          <Button className="bg-rose-600 text-white rounded-md">
+            JETZT BUCHEN
+          </Button>
+        </Link>
       </NavbarContent>
     </Navbar>
   );

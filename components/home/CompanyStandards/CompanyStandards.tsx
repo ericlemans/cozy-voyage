@@ -5,16 +5,17 @@ import style from './company-standards.module.scss';
 
 const CompanyStandards = () => {
   return (
-    <div className={`${style.companyStandards} py-[50px] md:px-[30px] px-[15px]`}>
+    <div id='our-company' className={`${style.companyStandards} md:px-[30px] px-[15px] py-20`}>
       <div className='p-4'>
-      <h2 className='mb-3'>WAS DU ERWARTEN KANNST</h2>
-      <h4 className="mb-8">
-        Wir stellen sicher, dass jeder Aufenthalt unseren hohen Standards entspricht - damit du dich einfach entspannen
-        und deine Zeit in Berlin oder Dresden genießen kannst.
-      </h4>
+        <h2 className='mb-3'>WAS DU ERWARTEN KANNST</h2>
+        <h4 className='max-w-[840px]'>
+          Wir stellen sicher, dass jeder Aufenthalt unseren hohen Standards entspricht - damit du dich einfach
+          entspannen
+          und deine Zeit in Berlin oder Dresden genießen kannst.
+        </h4>
       </div>
 
-      <Divider style={{marginBottom: 20}} />
+      <Divider style={{ marginBottom: 30, marginTop: 20 }} />
 
       <div className="flex flex-col items-start justify-center mb-8">
         <div className="flex flex-row justify-start relative gap-2">
@@ -32,12 +33,25 @@ const CompanyStandards = () => {
         <div className="flex flex-row justify-start relative gap-2">
           <div className="h-16 w-16 relative mx-4">
             <Image src="/assets/icons/self-checkin-logo.png" alt="Self checkin" fill />
-            </div>
-            <div className="flex flex-col w-2/3">
-              <h3>Self Check-In zu jeder Stunde</h3>
-              <p>Alle Check-ins werden mit einem einzigartigen Code verwaltet, der für deinen Aufenthalt erstellt wird.
-                Du kannst auch deine Ankunftszeit für späte Check-ins verwalten.</p>
-            </div>
+          </div>
+          <div className="flex flex-col w-2/3">
+            <h3>Self Check-In zu jeder Stunde</h3>
+            <p>Alle Check-ins werden mit einem einzigartigen Code verwaltet, der für deinen Aufenthalt erstellt wird.
+              Du kannst auch deine Ankunftszeit für späte Check-ins verwalten.</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex flex-col items-start justify-center mb-8">
+        <div className="flex flex-row justify-start relative gap-2">
+          <div className="h-16 w-16 relative mx-4">
+            <Image src="/assets/icons/disability-logo.png" objectFit='cover' alt="Internet" fill />
+          </div>
+          <div className="flex flex-col w-2/3">
+            <h3>Barrierefreier Eingang</h3>
+            <p>In Dresden gibt es keine Stufen am Eingang zu den Wohnungen, man kann direkt von der Straße aus hineingehen.
+              In Berlin gibt es nur zwei kleine Stufen, um in die Wohnung zu gelangen, ebenfalls direkt von der Straße aus.</p>
+          </div>
         </div>
       </div>
 

@@ -1,0 +1,19 @@
+.p-galleria-item-container {
+  button {
+    margin: 0 15px !important;
+  }
+}
+
+.p-galleria-thumbnail-wrapper {
+  margin-top: 20px
+}
+
+.p-galleria-thumbnail-items {
+  gap: 20px;
+
+  .p-galleria-thumbnail-item-content {
+    img {
+      object-fit: cover;
+    }
+  }
+}
