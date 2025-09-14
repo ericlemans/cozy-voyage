@@ -5,7 +5,6 @@ import { Galleria, GalleriaResponsiveOptions } from 'primereact/galleria';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroui/shared-icons';
 import './gallery.scss';
 import Image from 'next/image';
-import { Divider } from '@heroui/react';
 
 const Gallery = () => {
   const images: { src: string }[] = [
@@ -32,7 +31,7 @@ const Gallery = () => {
     },
   ];
 
-  const itemTemplate = (item: any) => {
+  const itemTemplate = (item: { src: string }) => {
     return (
       <div className="relative w-full h-[480px]">
         <Image src={item.src} alt={'Item template'} fill objectFit="cover" />
@@ -40,7 +39,7 @@ const Gallery = () => {
     );
   };
 
-  const thumbnailTemplate = (item: any) => {
+  const thumbnailTemplate = (item: {src: string}) => {
     return (
       <div className="relative w-36 h-24">
         <Image src={item.src} alt={'Item template'} fill objectFit="cover" />

@@ -5,6 +5,7 @@ import './globals.scss';
 import 'leaflet/dist/leaflet.css';
 import Header from '@/components/shared/Header/Header';
 import Footer from '@/components/shared/Footer/Footer';
+import { GoogleTagManager } from '@next/third-parties/google'
 
 const leagueSpartanSans = League_Spartan({
   subsets: ['latin'],
@@ -22,7 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html>
+    <GoogleTagManager gtmId='G-34D5LK3M4Z' />
     <body className={leagueSpartanSans.className}>
+
     <HeroUIProvider>
       <main className="mx-auto">
         <Header />

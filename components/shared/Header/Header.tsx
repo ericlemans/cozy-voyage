@@ -6,9 +6,9 @@ export default function Header() {
     <Navbar shouldHideOnScroll className="bg-white opacity-90 fixed" maxWidth="2xl" height={80}>
       <NavbarContent justify="center">
         <NavbarBrand className="mr-4 w-fit h-full">
-          <a href='/' className="w-[140px] h-full relative">
+          <Link href='/' className="w-[140px] h-full relative">
             <Image fill src={'/assets/logos/Cozy-Voyage-Logo.svg'} alt="Cozy Voyage" />
-          </a>
+          </Link>
         </NavbarBrand>
         <NavbarContent className="hidden sm:flex gap-3">
           <NavbarItem>

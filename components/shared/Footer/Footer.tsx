@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from '@heroui/react';
 
 const Footer = () => {
   return (
@@ -10,7 +9,7 @@ const Footer = () => {
         <div className="flex flex-col items-start">
           <h2 className="text-white text-xl font-semibold">Cozy Voyage</h2>
           <p className="text-gray-400 mt-2 text-sm">
-            Feel at home while you're away.
+            Feel at home while you&apos;re away.
           </p>
         </div>
 

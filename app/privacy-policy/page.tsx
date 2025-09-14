@@ -38,7 +38,7 @@ const PrivacyPolicyPage = () => {
           <li><strong>Recht auf Berichtigung (Art. 16 DSGVO):</strong> Sie haben das Recht auf Berichtigung unrichtiger
             oder unvollständiger Daten.
           </li>
-          <li><strong>Recht auf Löschung (Art. 17 DSGVO – "Recht auf Vergessenwerden"):</strong> Sie können die Löschung
+          <li><strong>Recht auf Löschung (Art. 17 DSGVO – &quot;Recht auf Vergessenwerden&quot;):</strong> Sie können die Löschung
             Ihrer Daten verlangen, wenn die Voraussetzungen erfüllt sind (z.B. die Daten für die Zwecke, für die sie
             erhoben wurden, nicht mehr notwendig sind).
           </li>
