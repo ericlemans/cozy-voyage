@@ -47,7 +47,7 @@ const TestimonialCarousel = () => {
       listing: 'Dresden Frauenkirche 2',
     },
     {
-      text: 'Outstanding hosting: not only the communication was responsive and very pleasant but Eric and team were really accommodating to our requests and anticipated our needs i.e. no need to ask for check in details or else, everything is sent well in advance - that’s rare! The place is great, nothing to comment about, everything you see is there. It is big and FRESH even by 30 degrees in summer. The location is very good, close to the metro and bus stations and super well connected. Mall and restaurants nearby.',
+      text: 'Outstanding hosting: not only the communication was responsive and very pleasant but Eric and team were really accommodating to our requests and anticipated our needs i.e. no need to ask for check in details or else, everything is sent well in advance - that’s rare!',
       guest: 'Johanna',
       country: 'Schweiz',
       stars: 5,
