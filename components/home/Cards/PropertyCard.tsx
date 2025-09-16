@@ -24,7 +24,7 @@ const PropertyCard = ({ title, location, guests, minPrice, image, href }: Proper
           />
         </CardHeader>
         <CardBody className="overflow-visible py-2">
-          <h4 className="text-2xl font-bold">{title}</h4>
+          <h4 className="text-2xl font-bold text-black">{title}</h4>
           <small className="text-large">{location}</small>
           <small className="text-large">Up to {guests} guests</small>
           <small className="text-large">

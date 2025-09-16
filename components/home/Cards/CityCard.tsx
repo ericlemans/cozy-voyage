@@ -4,7 +4,7 @@ export default function CityCard({city, location, imgSrc}: {city: string, locati
   return (
     <Card className="py-4" radius='sm' >
       <CardHeader className="py-2 px-4 flex-col items-center justify-center text-center gap-2">
-        <h4 className="text-2xl uppercase font-bold">{city}</h4>
+        <h4 className="text-black text-2xl uppercase font-bold">{city}</h4>
         <small className="text-large">{location}</small>
       </CardHeader>
       <CardBody className="overflow-visible py-2">

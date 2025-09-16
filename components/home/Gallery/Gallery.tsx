@@ -47,7 +47,7 @@ const Gallery = () => {
   };
 
   return (
-    <div id='gallery' className="bg-black py-24 px-10">
+    <div id='gallery' className="bg-black py-24 md:px-10 px-5">
       <div className="text-center mx-auto text-white max-w-[640px] mb-8">
         <h2 className="mb-3 text-white uppercase">Unsere Wohnungen in Bildern</h2>
         <h4>

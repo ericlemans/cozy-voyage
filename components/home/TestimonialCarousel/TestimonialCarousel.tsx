@@ -70,7 +70,7 @@ const TestimonialCarousel = () => {
   ];
 
   return (
-    <div id='testimonials' className="bg-black py-20 px-10">
+    <div id='testimonials' className="bg-black py-20 md:px-10 px-5">
       <h2 className="text-white uppercase px-14 text-center mb-3">Was unsere Gäste über uns sagen</h2>
       <h4 className="max-w-[840px] text-center mx-auto">
         Mit einer Mischung aus Funktionalität und Design haben wir unsere Wohnungen so eingerichtet, dass
