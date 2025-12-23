@@ -64,7 +64,7 @@ const TestimonialCarousel = () => {
       text: 'This conveniently located flat is right in the heart of Dresden’s old town. Everything is right there in walking distance. We saw the Frauenkirche, the Green Vault, the Christmas stores, the Elbe, and lots of shopping. Because of the great location, we were able to return to the flat several times to drop off packages and use the toilet. It is a clean and comfortable place with all the conveniences of home!',
       guest: 'Elisse',
       country: 'USA',
-      stars: 5,
+      stars: 4,
       listing: 'Dresden Frauenkirche 2',
     },
   ];
