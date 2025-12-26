@@ -25,7 +25,7 @@ COPY --from=builder /app ./
 
 # Open port for Next.js
 EXPOSE 3011
-HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD [ "wget", "-q0", "http://localhost:3011/health" ]
-
+HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
+  CMD wget --spider http://localhost:3011/health || exit 1
 
 CMD ["npm", "start"]
