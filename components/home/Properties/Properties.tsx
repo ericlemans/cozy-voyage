@@ -1,6 +1,8 @@
+'use client'
+
 import React from 'react';
 import PropertyCard from '@/components/home/Cards/PropertyCard';
-import { Divider } from '@heroui/react';
+import { Divider } from 'primereact/divider';
 
 const Properties = () => {
 

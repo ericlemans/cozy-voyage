@@ -1,9 +1,9 @@
 import HomeBanner from '@/components/home/Banner/HomeBanner';
 import Properties from '@/components/home/Properties/Properties';
 import CompanyStandards from '@/components/home/CompanyStandards/CompanyStandards';
-import { Divider } from '@heroui/react';
 import TestimonialCarousel from '@/components/home/TestimonialCarousel/TestimonialCarousel';
 import Gallery from '@/components/home/Gallery/Gallery';
+import { Divider } from 'primereact/divider';
 
 export default function Home() {
   return (

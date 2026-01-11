@@ -2,9 +2,10 @@
 
 import React from 'react';
 import { Galleria, GalleriaResponsiveOptions } from 'primereact/galleria';
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroui/shared-icons';
 import './gallery.scss';
 import Image from 'next/image';
+import { ChevronLeftIcon } from 'primereact/icons/chevronleft';
+import { ChevronRightIcon } from 'primereact/icons/chevronright';
 
 const Gallery = () => {
   const images: { src: string }[] = [

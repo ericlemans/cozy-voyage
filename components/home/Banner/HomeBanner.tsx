@@ -1,7 +1,11 @@
+'use client'
+
 import React from 'react';
 import Image from 'next/image';
-import { Button, Divider, Link } from '@heroui/react';
 import CityCard from '@/components/home/Cards/CityCard';
+import Link from 'next/link';
+import { Button } from 'primereact/button';
+import { Divider } from 'primereact/divider';
 
 const HomeBanner = () => {
   return (
@@ -23,20 +27,20 @@ const HomeBanner = () => {
       <div className="flex-row justify-center flex gap-12 flex-wrap -mt-40 md:-mt-32 mb-14 md:mb-20">
         <Link className="cursor-pointer" target="_blank"
               href={'https://cozy-voyage.lodgify.com/de/4578016/alle-objekte?adults=1&sort=price&city=Berlin'}>
-          <CityCard key="Berlin" city="Berlin" location="Ku'damm" imgSrc="./assets/images/Berlin.webp" />
+          <CityCard key="Berlin" city="Berlin" location="Ku'damm" imgSrc="/assets/images/Berlin.webp" />
         </Link>
         <Link className="cursor-pointer" target="_blank"
               href={'https://cozy-voyage.lodgify.com/de/4578016/alle-objekte?adults=1&sort=price&city=Dresden'}>
           <CityCard key="Dresden" city="Dresden" location="Frauenkirche"
-                    imgSrc="./assets/images/Dresden.jpeg" />
+                    imgSrc="/assets/images/Dresden.jpeg" />
         </Link>
       </div>
 
       <div className="w-full flex-row flex justify-center mb-16 md:mb-32">
         <Link className="cursor-pointer" href={'https://cozy-voyage.lodgify.com/de/4578016/alle-objekte'}>
-          <Button className="bg-rose-600 text-white rounded-md w-64" size="lg" >
+          <button className="bg-rose-600 text-white m-auto rounded-md w-64 py-4 text-semibold" >
             ALLE OBJEKTE
-          </Button>
+          </button>
         </Link>
       </div>
       <Divider className="w-1/2 mx-auto" />

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Divider } from '@heroui/react';
 import Image from 'next/image';
 import style from './company-standards.module.scss';
+import { Divider } from 'primereact/divider';
 
 const CompanyStandards = () => {
   return (

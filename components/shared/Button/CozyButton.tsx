@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Button, ButtonProps } from '@heroui/react';
 import { useRouter } from 'next/navigation';
+import { Button, ButtonProps } from 'primereact/button';
 
 
 type CozyButtonProps = {
@@ -13,7 +13,7 @@ type CozyButtonProps = {
 const CozyButton = ({ children, className, href, ...rest }: CozyButtonProps) => {
   const router = useRouter();
   return (
-    <Button {...rest} className={className} onPress={() => router.push(href)}>
+    <Button {...rest} className={className} onClick={() => router.push(href)}>
       {children}
     </Button>
   );

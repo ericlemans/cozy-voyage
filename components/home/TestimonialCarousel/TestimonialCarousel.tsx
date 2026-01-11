@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Card, CardBody, CardFooter } from '@heroui/react';
 import Image from 'next/image';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -109,27 +108,27 @@ const TestimonialCarousel = () => {
       >
         {testimonialCards.map((card, index) => (
           <SwiperSlide key={index}>
-            <Card isFooterBlurred className="border-none bg-white h-fit w-full max-w- px-3" radius="lg">
-              <CardBody>
-                <div className="h-14 w-14 relative mb-3">
-                  <Image src="/assets/icons/quotes-icon.png" alt="Testimonial quotes" fill />
-                </div>
-                <div className="flex flex-row justify-start gap-2 mb-4">
-                  {Array.from(Array(card.stars)).map((_, index) => (
-                    <div className="relative h-6 w-6" key={index}>
-                      <Image src="/assets/icons/star-icon.png" alt="Testimonial quotes" fill />
-                    </div>
-                  ))}
-                </div>
-                <p className="mb-3 font-light">
-                  {card.text}
-                </p>
-              </CardBody>
-              <CardFooter className="border-t-1 flex-col items-start">
-                <p className="uppercase font-semibold text-red-500">{card.guest} aus {card.country}</p>
-                <p className="">{card.listing}</p>
-              </CardFooter>
-            </Card>
+            {/*<Card isFooterBlurred className="border-none bg-white h-fit w-full max-w- px-3" radius="lg">*/}
+            {/*  <CardBody>*/}
+            {/*    <div className="h-14 w-14 relative mb-3">*/}
+            {/*      <Image src="/assets/icons/quotes-icon.png" alt="Testimonial quotes" fill />*/}
+            {/*    </div>*/}
+            {/*    <div className="flex flex-row justify-start gap-2 mb-4">*/}
+            {/*      {Array.from(Array(card.stars)).map((_, index) => (*/}
+            {/*        <div className="relative h-6 w-6" key={index}>*/}
+            {/*          <Image src="/assets/icons/star-icon.png" alt="Testimonial quotes" fill />*/}
+            {/*        </div>*/}
+            {/*      ))}*/}
+            {/*    </div>*/}
+            {/*    <p className="mb-3 font-light">*/}
+            {/*      {card.text}*/}
+            {/*    </p>*/}
+            {/*  </CardBody>*/}
+            {/*  <CardFooter className="border-t-1 flex-col items-start">*/}
+            {/*    <p className="uppercase font-semibold text-red-500">{card.guest} aus {card.country}</p>*/}
+            {/*    <p className="">{card.listing}</p>*/}
+            {/*  </CardFooter>*/}
+            {/*</Card>*/}
           </SwiperSlide>
         ))}
       </Swiper>
