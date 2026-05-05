@@ -9,7 +9,7 @@ const properties = [
     title: 'Stylish 135m² am Ku\'damm',
     location: 'Wittenbergplatz',
     city: 'Berlin',
-    image: '/assets/images/berlin_card .jpeg',
+    image: '/assets/images/berlin_card.jpeg',
     guests: 6,
     minPrice: 280,
     href: 'https://cozy-voyage.lodgify.com/de/4578017/cozy-voyage-stylish-135sqm-at-kudamm',

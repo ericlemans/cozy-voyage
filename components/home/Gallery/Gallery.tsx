@@ -10,6 +10,7 @@ const images = [
     city: 'Berlin',
     neighborhood: "Ku'damm",
     label: 'Stylish 135m²',
+    hero: true,
   },
   {
     src: '/assets/images/Dresden.jpeg',
@@ -17,13 +18,15 @@ const images = [
     city: 'Dresden',
     neighborhood: 'Altstadt',
     label: 'Frauenkirche',
+    hero: false,
   },
   {
-    src: '/assets/images/berlin_card .jpeg',
+    src: '/assets/images/berlin_card.jpeg',
     alt: 'Berlin Wohnzimmer',
     city: 'Berlin',
     neighborhood: 'Wittenbergplatz',
     label: 'Wohnzimmer',
+    hero: false,
   },
 ] as const;
 
@@ -61,11 +64,11 @@ const Gallery = () => {
       <div
         className="mx-auto grid max-w-[1200px] grid-cols-1 gap-[10px] md:grid-cols-[1.4fr_1fr] md:[grid-template-rows:340px_340px]"
       >
-        {images.map(({ src, alt, city, neighborhood, label }, index) => (
+        {images.map(({ src, alt, city, neighborhood, label, hero }) => (
           <div
             key={src}
             className={`group relative overflow-hidden ${
-              index === 0
+              hero
                 ? 'aspect-[3/4] md:aspect-auto md:row-span-2'
                 : 'aspect-[4/3]'
             }`}
@@ -77,15 +80,15 @@ const Gallery = () => {
               className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
               style={{ transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
               sizes={
-                index === 0
-                  ? '(max-width: 768px) 100vw, 58vw'
-                  : '(max-width: 768px) 100vw, 42vw'
+                hero
+                  ? '(max-width: 767px) 100vw, min(700px, 58vw)'
+                  : '(max-width: 767px) 100vw, min(490px, 42vw)'
               }
             />
             {/* Hover overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-within:opacity-100" />
             {/* Location label */}
-            <div className="absolute bottom-0 left-0 right-0 translate-y-2 p-5 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+            <div className="absolute bottom-0 left-0 right-0 translate-y-2 p-5 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100">
               <p
                 className="mb-1 text-xs font-medium uppercase text-rose-400"
                 style={{ letterSpacing: '0.2em' }}
