@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import PropertyCard from '@/components/home/Cards/PropertyCard';
+import { useTranslations } from 'next-intl';
 
 const properties = [
   {
@@ -45,6 +46,7 @@ const properties = [
 ];
 
 const Properties = () => {
+  const t = useTranslations('properties');
   const [featured, ...rest] = properties;
 
   return (
@@ -55,7 +57,7 @@ const Properties = () => {
           className="text-rose-500 text-xs font-medium uppercase mb-4"
           style={{ letterSpacing: '0.25em' }}
         >
-          Direkt buchen
+          {t('label')}
         </p>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <h2
@@ -67,7 +69,7 @@ const Properties = () => {
               lineHeight: 1.05,
             }}
           >
-            Unsere<br />Wohnungen
+            {t('heading1')}<br />{t('heading2')}
           </h2>
           <Link
             href="https://cozy-voyage.lodgify.com/de/4578016/alle-objekte"
@@ -75,7 +77,7 @@ const Properties = () => {
             className="group inline-flex items-center gap-3 text-gray-500 hover:text-rose-600 text-sm font-medium transition-colors duration-200 self-start md:self-auto"
             style={{ letterSpacing: '0.05em' }}
           >
-            Alle Objekte ansehen
+            {t('viewAll')}
             <svg
               className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
               fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"

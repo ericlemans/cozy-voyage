@@ -1,58 +1,48 @@
 'use client'
 
+import React from 'react';
 import Image from 'next/image';
+import { useRouter, usePathname } from '@/navigation';
+import { useLocale } from 'next-intl';
+import { locales } from '@/navigation';
 
 export default function Header() {
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const switchLocale = (next: string) => {
+    router.replace(pathname, { locale: next });
+  };
+
   return (
-    <></>
-    // <Navbar shouldHideOnScroll className="bg-white opacity-90 fixed" maxWidth="2xl" height={80}>
-    //   <NavbarContent justify="center">
-    //     <NavbarBrand className="mr-4 w-fit h-full">
-    //       <Link href='/' className="w-[140px] h-full relative">
-    //         <Image fill src={'/assets/logos/Cozy-Voyage-Logo.svg'} alt="Cozy Voyage" />
-    //       </Link>
-    //     </NavbarBrand>
-    //     <NavbarContent className="hidden sm:flex gap-3">
-    //       <NavbarItem>
-    //         <Link color="foreground" href={'#properties'}>
-    //           Unterkünfte
-    //         </Link>
-    //       </NavbarItem>
-    //       <NavbarItem>
-    //         <Link color='foreground' href={'#our-company'}>
-    //           Was wir anbieten
-    //         </Link>
-    //       </NavbarItem>
-    //       <NavbarItem>
-    //         <Link color="foreground" href={'#gallery'}>
-    //           Galerie
-    //         </Link>
-    //       </NavbarItem>
-    //       <NavbarItem>
-    //         <Link color="foreground" href={'#testimonials'}>
-    //           Bewertungen
-    //         </Link>
-    //       </NavbarItem>
-    //     </NavbarContent>
-    //   </NavbarContent>
-    //
-    //   <NavbarContent as="div" className="items-center gap-10" justify="end">
-    //     <a href="https://wa.me/4915778194349" target="_blank" className="flex gap-3 flex-row items-center">
-    //       <div className="h-8 w-8 relative">
-    //         <Image fill src={'/assets/icons/Whatsapp icon.svg'} alt={'Whatsapp icon'} />
-    //       </div>
-    //       <div className="flex flex-col">
-    //         <span className="text-black text-small">+4915778194349</span>
-    //         <span className="text-gray-500 text-small">Direct via Whatsapp</span>
-    //       </div>
-    //     </a>
-    //
-    //     <Link target='_blank' href={'https://cozy-voyage.lodgify.com/de/4578016/alle-objekte'}>
-    //       <Button className="bg-rose-600 text-white rounded-md">
-    //         JETZT BUCHEN
-    //       </Button>
-    //     </Link>
-    //   </NavbarContent>
-    // </Navbar>
+    <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 bg-black/30 backdrop-blur-sm">
+      <a href="/" className="relative w-[120px] h-[36px]">
+        <Image
+          src="/assets/logos/Cozy-Voyage-Logo.svg"
+          alt="Cozy Voyage"
+          fill
+          className="object-contain"
+        />
+      </a>
+
+      <div className="flex items-center gap-1">
+        {locales.map((l, i) => (
+          <React.Fragment key={l}>
+            {i > 0 && <span className="text-white/30 text-sm">|</span>}
+            <button
+              onClick={() => switchLocale(l)}
+              className={`px-2 py-1 text-sm font-semibold tracking-widest uppercase transition-colors duration-200 ${
+                locale === l
+                  ? 'text-white'
+                  : 'text-white/40 hover:text-white/70'
+              }`}
+            >
+              {l.toUpperCase()}
+            </button>
+          </React.Fragment>
+        ))}
+      </div>
+    </header>
   );
 }

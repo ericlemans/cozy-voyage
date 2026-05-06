@@ -7,6 +7,7 @@
     "tag2": "Deep cleaning",
     "tag3": "Central location",
     "cta": "All Properties",
+    "explore": "Explore",
     "bottomRight": "Holiday Apartments",
     "bottomRightCities": "Berlin & Dresden"
   },
@@ -58,7 +59,8 @@
     "subtitle": "With a blend of functionality and design, we've furnished our apartments so you can enjoy an unforgettable stay.",
     "scrollBack": "Back",
     "scrollForward": "Forward",
-    "zoomLabel": "Enlarge image: {alt}"
+    "zoomLabel": "Enlarge image: {alt}",
+    "close": "Close"
   },
   "testimonials": {
     "label": "Our Guests",

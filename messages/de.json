@@ -7,6 +7,7 @@
     "tag2": "Tiefenreinigung",
     "tag3": "Zentrale Lage",
     "cta": "Alle Objekte",
+    "explore": "Entdecken",
     "bottomRight": "Ferienwohnungen",
     "bottomRightCities": "Berlin & Dresden"
   },
@@ -58,7 +59,8 @@
     "subtitle": "Mit einer Mischung aus Funktionalität und Design haben wir unsere Wohnungen so eingerichtet, dass Sie einen unvergesslichen Aufenthalt genießen können.",
     "scrollBack": "Zurück",
     "scrollForward": "Weiter",
-    "zoomLabel": "Bild vergrößern: {alt}"
+    "zoomLabel": "Bild vergrößern: {alt}",
+    "close": "Schließen"
   },
   "testimonials": {
     "label": "Unsere Gäste",

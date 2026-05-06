@@ -1,8 +1,9 @@
 'use client'
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 const destinations = [
   {
@@ -20,38 +21,52 @@ const destinations = [
 ];
 
 const HomeBanner = () => {
+  const t = useTranslations('banner');
+  const parallaxRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (parallaxRef.current) {
+        parallaxRef.current.style.transform = `translateY(${window.scrollY * 0.35}px)`;
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
     <section className="relative bg-black">
       {/* Hero image */}
       <div className="relative h-screen min-h-[640px] max-h-[900px] w-full overflow-hidden">
-        <Image
-          className="object-cover scale-105"
-          src="/assets/images/Berlin_Ks_1.jpeg"
-          alt="Berlin Wittenbergplatz"
-          fill
-          priority
-          sizes="100vw"
-        />
+        <div ref={parallaxRef} className="absolute inset-0 scale-125 origin-top will-change-transform">
+          <Image
+            className="object-cover"
+            src="/assets/images/Berlin_Ks_1.jpeg"
+            alt="Berlin Wittenbergplatz"
+            fill
+            priority
+            sizes="100vw"
+          />
+        </div>
 
-        {/* Cinematic gradient overlay — no harsh opacity boxes */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/90" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/10 to-black/95" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
+
+        {/* Eyebrow — bottom right */}
+        <p
+          className="absolute bottom-16 md:bottom-24 right-6 md:right-12 z-10 text-right text-rose-400 font-bold uppercase leading-none"
+          style={{ fontSize: 'clamp(2rem, 5vw, 4.5rem)', letterSpacing: '-0.02em' }}
+        >
+          {t('bottomRight')}<br />{t('bottomRightCities')}
+        </p>
 
         {/* Hero content */}
         <div className="absolute inset-0 flex flex-col justify-end pb-16 md:pb-24">
           <div className="container mx-auto px-6 md:px-12">
 
-            {/* Eyebrow */}
-            <p
-              className="text-rose-400 text-xs md:text-sm tracking-[0.3em] uppercase font-medium mb-4"
-              style={{ letterSpacing: '0.25em' }}
-            >
-              Stilvolle Ferienunterkünfte
-            </p>
-
             {/* Headline */}
             <h1
-              className="text-white font-bold leading-none mb-4"
+              className="text-white font-bold leading-none mb-6"
               style={{
                 fontSize: 'clamp(3rem, 8vw, 7rem)',
                 letterSpacing: '-0.02em',
@@ -63,9 +78,22 @@ const HomeBanner = () => {
             </h1>
 
             {/* Subheadline */}
-            <p className="text-white/70 text-lg md:text-xl font-light mb-10 max-w-md">
-              Wohnungen mit Charakter — mitten in Berlin und Dresden.
+            <p className="text-white/85 text-lg md:text-xl font-light mb-7 max-w-lg leading-relaxed">
+              {t('subheadline')}
             </p>
+
+            {/* Feature tags */}
+            <div className="flex flex-wrap gap-2 mb-10">
+              {[t('tag0'), t('tag1'), t('tag2'), t('tag3')].map((tag) => (
+                <span
+                  key={tag}
+                  className="text-white/75 text-xs font-medium border border-white/20 px-3 py-1.5 rounded-full backdrop-blur-sm bg-white/5"
+                  style={{ letterSpacing: '0.04em' }}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
 
             {/* CTA row */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
@@ -75,7 +103,7 @@ const HomeBanner = () => {
                 className="group inline-flex items-center gap-3 bg-rose-600 hover:bg-rose-500 text-white px-8 py-4 text-sm font-semibold tracking-widest uppercase transition-all duration-300"
                 style={{ letterSpacing: '0.12em' }}
               >
-                Alle Objekte
+                {t('cta')}
                 <svg
                   className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                   fill="none" stroke="currentColor" strokeWidth={2}
@@ -147,7 +175,7 @@ const HomeBanner = () => {
                   {d.city}
                 </h2>
                 <div className="flex items-center gap-2 text-white/60 text-sm font-medium tracking-wide group-hover:text-white transition-colors duration-300">
-                  <span>Entdecken</span>
+                  <span>{t('explore')}</span>
                   <svg
                     className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                     fill="none" stroke="currentColor" strokeWidth={2}
