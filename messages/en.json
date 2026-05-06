@@ -1,0 +1,78 @@
+{
+  "banner": {
+    "eyebrow": "Holiday Apartments · Berlin & Dresden",
+    "subheadline": "Fully equipped designer apartments in prime locations — better than a hotel, more personal than Airbnb.",
+    "tag0": "Self Check-in 24/7",
+    "tag1": "Everything included",
+    "tag2": "Deep cleaning",
+    "tag3": "Central location",
+    "cta": "All Properties",
+    "bottomRight": "Holiday Apartments",
+    "bottomRightCities": "Berlin & Dresden"
+  },
+  "properties": {
+    "label": "Book Direct",
+    "heading1": "Our",
+    "heading2": "Apartments",
+    "viewAll": "View all properties"
+  },
+  "propertyCard": {
+    "guests": "up to {count} guests",
+    "night": "/ night",
+    "book": "Book"
+  },
+  "companyStandards": {
+    "label": "Our Promise",
+    "heading1": "What you",
+    "heading2": "can expect",
+    "subtitle": "Every stay meets our high standards — so you can simply arrive and enjoy.",
+    "wifi": {
+      "title": "Fast Wi-Fi Access",
+      "description": "Ideal for streaming, video calls and multiple simultaneous connections."
+    },
+    "checkin": {
+      "title": "Self Check-In at Any Hour",
+      "description": "A unique code for your stay — flexible arrival, no waiting."
+    },
+    "accessible": {
+      "title": "Accessible Entrance",
+      "description": "Dresden: street-level directly from the road. Berlin: just two small steps."
+    },
+    "design": {
+      "title": "Lovingly Designed Apartments",
+      "description": "Cozy is in our DNA — beautiful, functional and unforgettable."
+    },
+    "bedding": {
+      "title": "Bed Linen & Towels",
+      "description": "Bed linen, towels, bath towels and kitchen towels included."
+    },
+    "cleaning": {
+      "title": "Deep Cleaning — Every Time",
+      "description": "Impeccable cleanliness for every stay. Our reviews speak for themselves."
+    }
+  },
+  "gallery": {
+    "label": "Our Properties",
+    "heading1": "In",
+    "heading2": "Pictures",
+    "subtitle": "With a blend of functionality and design, we've furnished our apartments so you can enjoy an unforgettable stay.",
+    "scrollBack": "Back",
+    "scrollForward": "Forward",
+    "zoomLabel": "Enlarge image: {alt}"
+  },
+  "testimonials": {
+    "label": "Our Guests",
+    "heading1": "What guests",
+    "heading2": "say about us",
+    "subtitle": "Real experiences from guests around the world — in Berlin and Dresden."
+  },
+  "footer": {
+    "tagline": "Feel at home wherever you are.",
+    "companyHeading": "Company",
+    "aboutUs": "About Us",
+    "supportHeading": "Support",
+    "contact": "Contact",
+    "privacyPolicy": "Privacy Policy",
+    "copyright": "© {year} Cozy Voyage GmbH. All rights reserved."
+  }
+}
