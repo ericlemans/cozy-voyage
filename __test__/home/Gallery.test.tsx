@@ -15,17 +15,17 @@ describe('Gallery', () => {
     expect(heading).toHaveTextContent('Bildern');
   });
 
-  it('renders all 3 images with descriptive alt text', () => {
+  it('renders property section headings for Berlin and Dresden', () => {
     render(<Gallery />);
-    expect(screen.getByAltText('Berlin Stylish 135m²')).toBeInTheDocument();
-    expect(screen.getByAltText('Dresden Frauenkirche')).toBeInTheDocument();
-    expect(screen.getByAltText('Berlin Wohnzimmer')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 3, name: 'Berlin' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 3, name: 'Dresden' })).toBeInTheDocument();
   });
 
-  it('renders location labels for all 3 images', () => {
+  it('renders scroll buttons for each property row', () => {
     render(<Gallery />);
-    expect(screen.getByText('Stylish 135m²')).toBeInTheDocument();
-    expect(screen.getByText('Frauenkirche')).toBeInTheDocument();
-    expect(screen.getByText('Wohnzimmer')).toBeInTheDocument();
+    const backButtons = screen.getAllByRole('button', { name: 'Zurück' });
+    const forwardButtons = screen.getAllByRole('button', { name: 'Weiter' });
+    expect(backButtons).toHaveLength(2);
+    expect(forwardButtons).toHaveLength(2);
   });
 });
