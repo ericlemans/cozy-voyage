@@ -3,7 +3,7 @@ import { League_Spartan } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import '../globals.scss';
+import '../globals.css';
 import 'leaflet/dist/leaflet.css';
 import Header from '@/components/shared/Header/Header';
 import Footer from '@/components/shared/Footer/Footer';

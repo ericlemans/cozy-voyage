@@ -77,7 +77,7 @@ const CompanyStandards = () => {
       <div className="mb-16 md:mb-20">
         <p
           className="text-rose-500 font-medium uppercase mb-4"
-          style={{ letterSpacing: '0.25em'}}
+          style={{ letterSpacing: '0.25em', fontSize: '16px' }}
         >
           {t('label')}
         </p>
@@ -93,7 +93,7 @@ const CompanyStandards = () => {
           >
             {t('heading1')}<br />{t('heading2')}
           </h2>
-          <p className="text-gray-500 font-light max-w-sm md:text-right leading-relaxed">
+          <p className="text-gray-500 font-light max-w-sm md:text-right leading-relaxed" style={{ fontSize: '16px' }}>
             {t('subtitle')}
           </p>
         </div>
@@ -127,7 +127,7 @@ const CompanyStandards = () => {
               >
                 {t(`${feature.key}.title`)}
               </h3>
-              <p className="text-gray-500 leading-relaxed" style={{color: '#6b7280' }}>
+              <p className="text-gray-500 leading-relaxed" style={{ fontSize: '16px', color: '#6b7280' }}>
                 {t(`${feature.key}.description`)}
               </p>
             </div>
