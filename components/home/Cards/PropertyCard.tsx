@@ -57,7 +57,7 @@ const PropertyCard = ({ title, location, city, guests, minPrice, image, href, fe
 
         <h3
           className="text-white font-bold leading-tight mb-4"
-          style={{letterSpacing: '-0.01em' }}
+          style={{ fontSize: featured ? 'clamp(1.5rem, 3vw, 2.25rem)' : '1.25rem', letterSpacing: '-0.01em' }}
         >
           {title}
         </h3>

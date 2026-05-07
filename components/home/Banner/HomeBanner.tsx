@@ -53,7 +53,7 @@ const HomeBanner = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
 
         {/* Eyebrow — bottom right */}
-        <span className="absolute bottom-16 md:bottom-24 right-6 md:right-12 z-10 text-right !text-rose-400 font-bold uppercase leading-none">
+        <span className="absolute bottom-16 md:bottom-24 right-6 md:right-12 z-10 text-right !text-rose-400 font-bold uppercase leading-none" style={{ fontSize: 'clamp(2rem, 5vw, 4.5rem)', letterSpacing: '-0.02em' }}>
           {t('bottomRight')}<br />{t('bottomRightCities')}
         </span>
 
