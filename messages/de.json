@@ -1,0 +1,80 @@
+{
+  "banner": {
+    "eyebrow": "Ferienwohnungen · Berlin & Dresden",
+    "subheadline": "Vollausgestattete Designwohnungen in bester Lage — besser als ein Hotel, persönlicher als Airbnb.",
+    "tag0": "Self Check-in 24/7",
+    "tag1": "Vollausstattung inklusive",
+    "tag2": "Tiefenreinigung",
+    "tag3": "Zentrale Lage",
+    "cta": "Alle Objekte",
+    "explore": "Entdecken",
+    "bottomRight": "Ferienwohnungen",
+    "bottomRightCities": "Berlin & Dresden"
+  },
+  "properties": {
+    "label": "Direkt buchen",
+    "heading1": "Unsere",
+    "heading2": "Wohnungen",
+    "viewAll": "Alle Objekte ansehen"
+  },
+  "propertyCard": {
+    "guests": "bis zu {count} Gäste",
+    "night": "/ Nacht",
+    "book": "Buchen"
+  },
+  "companyStandards": {
+    "label": "Unser Versprechen",
+    "heading1": "Was du",
+    "heading2": "erwarten kannst",
+    "subtitle": "Jeder Aufenthalt entspricht unseren hohen Standards — damit du einfach ankommst und genießt.",
+    "wifi": {
+      "title": "Schneller Wi-Fi-Zugang",
+      "description": "Ideal für Streaming, Videoanrufe und mehrere Verbindungen gleichzeitig."
+    },
+    "checkin": {
+      "title": "Self Check-In zu jeder Stunde",
+      "description": "Ein einzigartiger Code für deinen Aufenthalt — flexible Ankunft, kein Warten."
+    },
+    "accessible": {
+      "title": "Barrierefreier Eingang",
+      "description": "Dresden: ebenerdig direkt von der Straße. Berlin: nur zwei kleine Stufen."
+    },
+    "design": {
+      "title": "Mit Liebe gestaltete Wohnungen",
+      "description": "Cozy ist in unserer DNA — schön, funktional und unvergesslich."
+    },
+    "bedding": {
+      "title": "Bettwäsche & Handtücher",
+      "description": "Bettwäsche, Handtücher, Duschtücher und Küchenhandtücher inklusive."
+    },
+    "cleaning": {
+      "title": "Tiefenreinigung — jedes Mal",
+      "description": "Makellose Sauberkeit bei jedem Aufenthalt. Unsere Bewertungen sprechen für uns."
+    }
+  },
+  "gallery": {
+    "label": "Unsere Wohnungen",
+    "heading1": "In",
+    "heading2": "Bildern",
+    "subtitle": "Mit einer Mischung aus Funktionalität und Design haben wir unsere Wohnungen so eingerichtet, dass Sie einen unvergesslichen Aufenthalt genießen können.",
+    "scrollBack": "Zurück",
+    "scrollForward": "Weiter",
+    "zoomLabel": "Bild vergrößern: {alt}",
+    "close": "Schließen"
+  },
+  "testimonials": {
+    "label": "Unsere Gäste",
+    "heading1": "Was Gäste",
+    "heading2": "über uns sagen",
+    "subtitle": "Echte Erfahrungen von Gästen aus aller Welt — in Berlin und Dresden."
+  },
+  "footer": {
+    "tagline": "Zu Hause, wo immer du bist.",
+    "companyHeading": "Unternehmen",
+    "aboutUs": "Über uns",
+    "supportHeading": "Kundendienst",
+    "contact": "Kontakt",
+    "privacyPolicy": "Datenschutz",
+    "copyright": "© {year} Cozy Voyage GmbH. Alle Rechte vorbehalten."
+  }
+}

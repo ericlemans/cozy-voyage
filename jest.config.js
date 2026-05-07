@@ -1,0 +1,21 @@
+const nextJest = require('next/jest');
+
+const createJestConfig = nextJest({ dir: './' });
+
+/** @type {import('jest').Config} */
+const config = {
+  testEnvironment: 'jsdom',
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  moduleNameMapper: {
+    '^next/image$': '<rootDir>/__mocks__/next/image.tsx',
+    '^next/script$': '<rootDir>/__mocks__/next/script.tsx',
+    '^swiper/react$': '<rootDir>/__mocks__/swiper/react.tsx',
+    '^swiper/modules$': '<rootDir>/__mocks__/swiper/modules.ts',
+    '^swiper/css.*$': '<rootDir>/__mocks__/swiper/css.ts',
+    '^@/navigation$': '<rootDir>/navigation.ts',
+    '^@/routing$': '<rootDir>/routing.ts',
+    '^next-intl$': '<rootDir>/__mocks__/next-intl.tsx',
+  },
+};
+
+module.exports = createJestConfig(config);

@@ -1,6 +1,9 @@
+'use client'
+
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 type PropertyCardProps = {
   title: string;
@@ -14,6 +17,7 @@ type PropertyCardProps = {
 }
 
 const PropertyCard = ({ title, location, city, guests, minPrice, image, href, featured }: PropertyCardProps) => {
+  const t = useTranslations('propertyCard');
   return (
     <Link
       href={href}
@@ -61,16 +65,16 @@ const PropertyCard = ({ title, location, city, guests, minPrice, image, href, fe
         <div className="flex items-end justify-between">
           <div className="flex flex-col gap-1">
             <span className="text-white/50 text-xs uppercase" style={{ letterSpacing: '0.1em' }}>
-              bis zu {guests} Gäste
+              {t('guests', { count: guests })}
             </span>
             <div className="flex items-baseline gap-1">
               <span className="text-white font-bold text-xl">€{minPrice}</span>
-              <span className="text-white/50 text-sm">/ Nacht</span>
+              <span className="text-white/50 text-sm">{t('night')}</span>
             </div>
           </div>
 
           <div className="flex items-center gap-2 text-white/60 text-sm font-medium group-hover:text-white transition-colors duration-300">
-            <span className="uppercase" style={{ letterSpacing: '0.08em', fontSize: '0.75rem' }}>Buchen</span>
+            <span className="uppercase" style={{ letterSpacing: '0.08em', fontSize: '0.75rem' }}>{t('book')}</span>
             <svg
               className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
               fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"
