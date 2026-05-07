@@ -1,0 +1,274 @@
+<style>
+  body { background: #0a0a0a; }
+  .question-title { color: #fff; font-size: 1.2rem; font-weight: 600; margin-bottom: 6px; }
+  .question-sub { color: #888; font-size: 0.9rem; margin-bottom: 28px; }
+
+  .layout-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+  .layout-card {
+    background: #111;
+    border: 2px solid #222;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .layout-card:hover { border-color: #e11d47; transform: translateY(-2px); }
+  .layout-card.selected { border-color: #e11d47; }
+
+  .preview {
+    background: #000;
+    padding: 16px;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Option A – Editorial Grid */
+  .grid-preview {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 5px;
+    height: 100%;
+  }
+  .grid-hero {
+    grid-row: 1 / 3;
+    background: linear-gradient(160deg, #1a1a2e 0%, #2d1b0e 50%, #1a1212 100%);
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+  }
+  .grid-hero::after {
+    content: 'Berlin';
+    position: absolute;
+    bottom: 10px; left: 12px;
+    color: #e11d47;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .grid-small {
+    background: linear-gradient(135deg, #0e1a1a 0%, #1a2e1a 100%);
+    border-radius: 3px;
+  }
+  .grid-small:nth-child(3) {
+    background: linear-gradient(135deg, #1a0e0e 0%, #2e1a0e 100%);
+  }
+
+  /* Option B – Cinematic Carousel */
+  .cinema-preview {
+    height: 100%;
+    position: relative;
+    background: linear-gradient(160deg, #0d1117 0%, #1a0e1a 40%, #1a1200 100%);
+    border-radius: 3px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+  }
+  .cinema-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+  }
+  .cinema-label {
+    position: absolute;
+    bottom: 28px;
+    left: 16px;
+    color: #fff;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+  .cinema-arrows {
+    position: absolute;
+    bottom: 28px;
+    right: 16px;
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+  }
+  .cinema-arrow {
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.6rem;
+  }
+  .cinema-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+    z-index: 2;
+  }
+  .cinema-dot {
+    width: 16px;
+    height: 2px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 1px;
+  }
+  .cinema-dot.active {
+    background: #e11d47;
+    width: 28px;
+  }
+
+  /* Option C – Filmstrip */
+  .strip-preview {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+  }
+  .strip-row {
+    display: flex;
+    gap: 6px;
+    overflow: hidden;
+  }
+  .strip-img {
+    flex: 0 0 auto;
+    height: 64px;
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+  }
+  .strip-img:nth-child(1) { width: 110px; background: linear-gradient(135deg, #0d1117 0%, #1a1a2e 100%); }
+  .strip-img:nth-child(2) { width: 85px; background: linear-gradient(135deg, #1a0e0e 0%, #2e1a0e 100%); }
+  .strip-img:nth-child(3) { width: 95px; background: linear-gradient(135deg, #0e1a1a 0%, #0e2e1a 100%); }
+  .strip-img:nth-child(4) { width: 70px; background: linear-gradient(135deg, #1a1200 0%, #2e2400 100%); opacity: 0.5; }
+  .strip-label {
+    position: absolute;
+    bottom: 5px; left: 7px;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.45rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .strip-scroll-hint {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 4px;
+  }
+  .strip-line {
+    flex: 1;
+    height: 1px;
+    background: #222;
+  }
+  .strip-active {
+    height: 1px;
+    width: 40px;
+    background: #e11d47;
+  }
+  .strip-hint-text { color: #444; font-size: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .card-info {
+    padding: 16px;
+  }
+  .card-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #e11d47;
+    margin-bottom: 6px;
+  }
+  .card-title {
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .card-desc {
+    color: #666;
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 900px) {
+    .layout-cards { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="question-title">Which gallery layout fits Cozy Voyage best?</p>
+<p class="question-sub">Three directions — all replace the current PrimeReact Galleria. Click to select.</p>
+
+<div class="layout-cards">
+
+  <!-- Option A: Editorial Grid -->
+  <div class="layout-card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="preview">
+      <div class="grid-preview">
+        <div class="grid-hero"></div>
+        <div class="grid-small"></div>
+        <div class="grid-small"></div>
+      </div>
+    </div>
+    <div class="card-info">
+      <div class="card-label">Option A</div>
+      <div class="card-title">Editorial Grid</div>
+      <div class="card-desc">Asymmetric 2-column grid — one tall hero image + 2–3 smaller insets. Static layout, no carousel. Hover reveals a soft overlay. Feels like a luxury print magazine spread.</div>
+    </div>
+  </div>
+
+  <!-- Option B: Cinematic Carousel -->
+  <div class="layout-card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="preview">
+      <div class="cinema-preview">
+        <div class="cinema-overlay"></div>
+        <div class="cinema-label">Dresden — Frauenkirche</div>
+        <div class="cinema-arrows">
+          <div class="cinema-arrow">‹</div>
+          <div class="cinema-arrow">›</div>
+        </div>
+        <div class="cinema-dots">
+          <div class="cinema-dot active"></div>
+          <div class="cinema-dot"></div>
+          <div class="cinema-dot"></div>
+          <div class="cinema-dot"></div>
+          <div class="cinema-dot"></div>
+          <div class="cinema-dot"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-info">
+      <div class="card-label">Option B</div>
+      <div class="card-title">Cinematic Full-Width Carousel</div>
+      <div class="card-desc">One full-section-width image at a time, ~560px tall. Fade transition on advance. Location label overlaid bottom-left. Thin dash indicators, minimal circle arrows. No thumbnail strip.</div>
+    </div>
+  </div>
+
+  <!-- Option C: Filmstrip -->
+  <div class="layout-card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="preview" style="justify-content: center;">
+      <div class="strip-preview">
+        <div class="strip-row">
+          <div class="strip-img"><span class="strip-label">Berlin</span></div>
+          <div class="strip-img"><span class="strip-label">Dresden</span></div>
+          <div class="strip-img"><span class="strip-label">Berlin</span></div>
+          <div class="strip-img"><span class="strip-label">…</span></div>
+        </div>
+        <div class="strip-scroll-hint">
+          <div class="strip-active"></div>
+          <div class="strip-line"></div>
+          <div class="strip-hint-text">scroll →</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-info">
+      <div class="card-label">Option C</div>
+      <div class="card-title">Horizontal Filmstrip</div>
+      <div class="card-desc">A wide horizontal scroll strip — 3 images visible, 4th peeking. Each image has a city label. Drag or click arrows to advance. Feels modern and scrollable-first.</div>
+    </div>
+  </div>
+
+</div>

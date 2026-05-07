@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery Redesign — Editorial Grid</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #fff; }
+
+  .page-note {
+    text-align: center;
+    padding: 16px;
+    color: #555;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  /* ── Section ── */
+  .gallery-section {
+    background: #000;
+    padding: 96px 40px;
+  }
+
+  /* ── Header ── */
+  .gallery-header {
+    max-width: 1200px;
+    margin: 0 auto 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #e11d47;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .heading-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  .main-heading {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: #fff;
+  }
+  .sub-text {
+    max-width: 340px;
+    color: rgba(255,255,255,0.45);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    font-weight: 300;
+    padding-bottom: 4px;
+  }
+
+  /* ── Grid ── */
+  .gallery-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    grid-template-rows: 340px 340px;
+    gap: 10px;
+  }
+
+  .gallery-img {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background: #111;
+  }
+  .gallery-img:first-child {
+    grid-row: 1 / 3;
+  }
+
+  /* Fake images via gradient */
+  .img-berlin-1 {
+    background: linear-gradient(160deg, #0d1117 0%, #141028 30%, #1a1000 60%, #0d0d0d 100%);
+  }
+  .img-dresden {
+    background: linear-gradient(135deg, #0e1a1a 0%, #0a1f2a 50%, #0d1117 100%);
+  }
+  .img-berlin-2 {
+    background: linear-gradient(135deg, #1a0e0e 0%, #2e1600 40%, #1a1000 100%);
+  }
+
+  /* Simulated photo texture */
+  .gallery-img::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 30% 40%, rgba(255,255,255,0.03) 0%, transparent 50%),
+      radial-gradient(circle at 70% 70%, rgba(255,255,255,0.02) 0%, transparent 40%);
+  }
+
+  /* Hover overlay */
+  .img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .gallery-img:hover .img-overlay { opacity: 1; }
+
+  /* Location label */
+  .img-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px 22px 20px;
+    transform: translateY(8px);
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 2;
+  }
+  .gallery-img:hover .img-label {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .img-city {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #e11d47;
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+  .img-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.01em;
+  }
+
+  /* Image scale on hover */
+  .img-inner {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .gallery-img:hover .img-inner { transform: scale(1.04); }
+
+  /* ── Caption strip ── */
+  .image-count {
+    max-width: 1200px;
+    margin: 20px auto 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .count-line {
+    flex: 1;
+    height: 1px;
+    background: #1a1a1a;
+  }
+  .count-text {
+    color: #333;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* ── Hover note ── */
+  .hover-note {
+    text-align: center;
+    margin-top: 48px;
+    color: #333;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ── Design notes panel ── */
+  .design-notes {
+    max-width: 1200px;
+    margin: 48px auto 0;
+    border-top: 1px solid #1a1a1a;
+    padding-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .note {
+    padding: 20px;
+    background: #0f0f0f;
+    border: 1px solid #1a1a1a;
+    border-radius: 6px;
+  }
+  .note-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #e11d47;
+    margin-bottom: 8px;
+  }
+  .note-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .note-body {
+    font-size: 0.78rem;
+    color: #555;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-note">Gallery Section — Editorial Grid Design Preview · Hover the images to see interaction</div>
+
+<section class="gallery-section">
+
+  <!-- Header -->
+  <div class="gallery-header">
+    <div class="eyebrow">Unsere Wohnungen</div>
+    <div class="heading-row">
+      <h2 class="main-heading">In<br>Bildern</h2>
+      <p class="sub-text">Mit einer Mischung aus Funktionalität und Design haben wir unsere Wohnungen so eingerichtet, dass Sie einen unvergesslichen Aufenthalt genießen können.</p>
+    </div>
+  </div>
+
+  <!-- Grid -->
+  <div class="gallery-grid">
+
+    <!-- Hero — Berlin -->
+    <div class="gallery-img img-berlin-1">
+      <div class="img-inner img-berlin-1"></div>
+      <div class="img-overlay"></div>
+      <div class="img-label">
+        <div class="img-city">Berlin · Ku'damm</div>
+        <div class="img-name">Stylish 135m²</div>
+      </div>
+    </div>
+
+    <!-- Dresden -->
+    <div class="gallery-img img-dresden">
+      <div class="img-inner img-dresden"></div>
+      <div class="img-overlay"></div>
+      <div class="img-label">
+        <div class="img-city">Dresden · Altstadt</div>
+        <div class="img-name">Frauenkirche</div>
+      </div>
+    </div>
+
+    <!-- Berlin card -->
+    <div class="gallery-img img-berlin-2">
+      <div class="img-inner img-berlin-2"></div>
+      <div class="img-overlay"></div>
+      <div class="img-label">
+        <div class="img-city">Berlin · Wittenbergplatz</div>
+        <div class="img-name">Wohnzimmer</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="image-count">
+    <div class="count-line"></div>
+    <div class="count-text">3 Locations · Berlin &amp; Dresden</div>
+    <div class="count-line"></div>
+  </div>
+
+  <!-- Design notes -->
+  <div class="design-notes">
+    <div class="note">
+      <div class="note-label">Layout</div>
+      <div class="note-title">Asymmetric 2-column grid</div>
+      <div class="note-body">Hero image spans full left column height. Two images stacked on the right. Full-width on mobile (3 images stacked).</div>
+    </div>
+    <div class="note">
+      <div class="note-label">Interaction</div>
+      <div class="note-title">Hover: scale + label fade-in</div>
+      <div class="note-body">Each image scales 1.04× on hover. Dark gradient overlay + city/property label fades up from the bottom — matching the HomeBanner card style.</div>
+    </div>
+    <div class="note">
+      <div class="note-label">Dependencies removed</div>
+      <div class="note-title">No PrimeReact, no SCSS</div>
+      <div class="note-body">Replaces Galleria + gallery.scss entirely. Pure Next.js Image + Tailwind CSS. Eliminates the hydration ID mismatch fixed earlier.</div>
+    </div>
+  </div>
+
+  <p class="hover-note">↑ Hover the images above to preview the interaction</p>
+
+</section>
+
+</body>
+</html>

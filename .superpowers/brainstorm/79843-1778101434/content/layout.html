@@ -1,0 +1,313 @@
+<style>
+  .preview-section {
+    background: #0a0a0a;
+    padding: 28px 24px;
+    border-radius: 8px;
+    font-family: Inter, sans-serif;
+    margin-bottom: 0;
+  }
+  .preview-label {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #f43f5e;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .preview-heading {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .preview-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 300;
+    margin-bottom: 20px;
+    max-width: 340px;
+  }
+  /* Option A: Grid */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .review-card {
+    background: #161616;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 6px;
+    padding: 14px;
+  }
+  .review-stars {
+    color: #f43f5e;
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+  .review-text {
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.55;
+    margin-bottom: 12px;
+    font-weight: 300;
+  }
+  .review-author {
+    font-size: 10px;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .review-listing {
+    font-size: 10px;
+    color: rgba(255,255,255,0.35);
+    margin-top: 2px;
+  }
+  /* Option B: Marquee rows */
+  .marquee-wrap {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .marquee-row {
+    display: flex;
+    gap: 10px;
+    overflow: hidden;
+  }
+  .marquee-pill {
+    flex-shrink: 0;
+    background: #161616;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 50px;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+  }
+  .pill-stars { color: #f43f5e; font-size: 10px; }
+  .pill-text { font-size: 11px; color: rgba(255,255,255,0.7); max-width: 200px; overflow: hidden; text-overflow: ellipsis; }
+  .pill-author { font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.5); }
+  /* Option C: Featured + strip */
+  .featured-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .featured-quote {
+    padding: 20px;
+    background: #161616;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 6px;
+  }
+  .big-quote {
+    font-size: 36px;
+    color: #f43f5e;
+    line-height: 1;
+    margin-bottom: 8px;
+    font-family: Georgia, serif;
+  }
+  .featured-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.65;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+  .featured-author {
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .strip-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .strip-card {
+    background: #161616;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 6px;
+    padding: 12px 14px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .strip-quote-icon {
+    font-size: 20px;
+    color: #f43f5e;
+    font-family: Georgia, serif;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .strip-text {
+    font-size: 11px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+    font-weight: 300;
+  }
+  .strip-author {
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.45);
+    margin-top: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  /* Badges row */
+  .badges-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    align-items: center;
+  }
+  .badge-circle {
+    width: 52px;
+    height: 52px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7px;
+    font-weight: 700;
+    color: #111;
+    text-align: center;
+    line-height: 1.2;
+    padding: 6px;
+  }
+</style>
+
+<h2>Testimonials section — which layout?</h2>
+<p class="subtitle">All three use the existing dark palette and rose accents. Click to choose.</p>
+
+<div class="cards">
+
+  <!-- Option A -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="preview-section">
+        <p class="preview-label">Was unsere Gäste sagen</p>
+        <div class="preview-heading">Gästestimmen</div>
+        <p class="preview-sub">Echte Erfahrungen von echten Gästen.</p>
+        <div class="grid-3">
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Perfekte Lage, direkt hinter der Frauenkirche. Gerne wieder!"</p>
+            <div class="review-author">Julia · Italien</div>
+            <div class="review-listing">Dresden Frauenkirche</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Very good location. Clean and modern. Recommended!"</p>
+            <div class="review-author">Lin An · China</div>
+            <div class="review-listing">Dresden Frauenkirche</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Eric is the absolute best, he made everything perfect!"</p>
+            <div class="review-author">Lydia · USA</div>
+            <div class="review-listing">Berlin Ku'damm</div>
+          </div>
+        </div>
+        <div class="badges-row">
+          <div class="badge-circle">Guest Fav.</div>
+          <div class="badge-circle">9.6 Booking</div>
+          <div class="badge-circle">Super­host</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Static grid</h3>
+      <p>3-column card grid. No motion, easy to read, all reviews visible at once.</p>
+    </div>
+  </div>
+
+  <!-- Option B -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="preview-section">
+        <p class="preview-label">Was unsere Gäste sagen</p>
+        <div class="preview-heading">Gästestimmen</div>
+        <p class="preview-sub">Echte Erfahrungen von echten Gästen.</p>
+        <div class="marquee-wrap">
+          <div class="marquee-row">
+            <div class="marquee-pill"><span class="pill-stars">★★★★★</span><span class="pill-text">"Perfekte Lage, direkt hinter der Frauenkirche."</span><span class="pill-author">Julia · Italien</span></div>
+            <div class="marquee-pill"><span class="pill-stars">★★★★★</span><span class="pill-text">"Clean and modern. Recommended!"</span><span class="pill-author">Lin An · China</span></div>
+            <div class="marquee-pill"><span class="pill-stars">★★★★★</span><span class="pill-text">"Eric is the absolute best!"</span><span class="pill-author">Lydia · USA</span></div>
+          </div>
+          <div class="marquee-row" style="margin-left:-60px">
+            <div class="marquee-pill"><span class="pill-stars">★★★★★</span><span class="pill-text">"Stilvoll eingerichtete Wohnung in bester Zentrumslage."</span><span class="pill-author">Jürgen · DE</span></div>
+            <div class="marquee-pill"><span class="pill-stars">★★★★★</span><span class="pill-text">"Communication was responsive and very pleasant."</span><span class="pill-author">Johanna · CH</span></div>
+          </div>
+        </div>
+        <div class="badges-row">
+          <div class="badge-circle">Guest Fav.</div>
+          <div class="badge-circle">9.6 Booking</div>
+          <div class="badge-circle">Super­host</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Scrolling marquee</h3>
+      <p>Two rows of auto-scrolling pill cards. Energetic feel, shows many reviews at a glance.</p>
+    </div>
+  </div>
+
+  <!-- Option C -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="preview-section">
+        <p class="preview-label">Was unsere Gäste sagen</p>
+        <div class="preview-heading">Gästestimmen</div>
+        <div class="featured-layout" style="margin-top:14px">
+          <div class="featured-quote">
+            <div class="big-quote">"</div>
+            <p class="featured-text">Eric is the absolute best, he made everything perfect. I can't say enough good things about it.</p>
+            <div class="featured-author">Lydia · USA · ★★★★★</div>
+            <div class="review-listing" style="margin-top:4px">Berlin Ku'damm</div>
+          </div>
+          <div class="strip-cards">
+            <div class="strip-card">
+              <span class="strip-quote-icon">"</span>
+              <div>
+                <p class="strip-text">Perfekte Lage, direkt hinter der Frauenkirche. Gerne wieder!</p>
+                <p class="strip-author">Julia · Italien · ★★★★★</p>
+              </div>
+            </div>
+            <div class="strip-card">
+              <span class="strip-quote-icon">"</span>
+              <div>
+                <p class="strip-text">Sehr stilvoll eingerichtete Wohnung in bester Zentrumslage.</p>
+                <p class="strip-author">Jürgen · Deutschland · ★★★★★</p>
+              </div>
+            </div>
+            <div class="strip-card">
+              <span class="strip-quote-icon">"</span>
+              <div>
+                <p class="strip-text">Communication was responsive and very pleasant — that's rare!</p>
+                <p class="strip-author">Johanna · Schweiz · ★★★★★</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="badges-row">
+          <div class="badge-circle">Guest Fav.</div>
+          <div class="badge-circle">9.6 Booking</div>
+          <div class="badge-circle">Super­host</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Featured + sidebar</h3>
+      <p>One hero quote on the left, smaller cards stacked on the right. Elegant, editorial feel.</p>
+    </div>
+  </div>
+
+</div>
