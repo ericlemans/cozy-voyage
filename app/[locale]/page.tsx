@@ -11,7 +11,8 @@ export default function Home() {
         <HomeBanner />
         <div className="container mx-auto">
           <Properties />
-          <Divider />
+          {/*Divider*/}
+          <div className='flex justify-center items-center border-b border-gray-400 w-full' />
           <CompanyStandards />
         </div>
         <Gallery />

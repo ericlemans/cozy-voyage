@@ -16,7 +16,8 @@ const features: { key: string; icon: React.ReactNode }[] = [
     key: 'checkin',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-10 h-10">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
+        <rect x="5" y="2" width="14" height="20" rx="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 7h.01M12 7h.01M15 7h.01M9 11h.01M12 11h.01M15 11h.01M9 15h.01M12 15h.01M15 15h.01M12 19h.01" />
       </svg>
     ),
   },
@@ -24,22 +25,12 @@ const features: { key: string; icon: React.ReactNode }[] = [
     key: 'accessible',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-10 h-10">
-        {/* Head */}
-        <circle cx="12" cy="4" r="1.25" />
-        {/* Torso to seat */}
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 5.25v4.25H8.5" />
-        {/* Seat back */}
-        <path strokeLinecap="round" strokeLinejoin="round" d="M8.5 5.75V9.5" />
-        {/* Seat */}
-        <path strokeLinecap="round" strokeLinejoin="round" d="M8.5 9.5h5.25" />
-        {/* Arm to push rim */}
-        <path strokeLinecap="round" strokeLinejoin="round" d="M13.75 9.5l1.5 4.75" />
-        {/* Footrest */}
-        <path strokeLinecap="round" strokeLinejoin="round" d="M8.5 14.25l-.5 1.5" />
-        {/* Large rear wheel */}
-        <circle cx="9" cy="18" r="3.25" />
-        {/* Small front wheel */}
-        <circle cx="15.5" cy="18.5" r="1.25" />
+        <circle cx="14.5" cy="3.5" r="1.5" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M14.5 5L9 12.5" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8l3.5 4.5" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 7v5.5h8M17 12.5v5" />
+        <circle cx="9" cy="20" r="3" />
+        <circle cx="17" cy="20" r="1.5" />
       </svg>
     ),
   },
@@ -72,7 +63,7 @@ const features: { key: string; icon: React.ReactNode }[] = [
 const CompanyStandards = () => {
   const t = useTranslations('companyStandards');
   return (
-    <section id="our-company" className="py-24 md:py-32">
+    <section id="our-company" className="py-24 md:py-32 px-6 md:px-10">
       {/* Section header */}
       <div className="mb-16 md:mb-20">
         <p
@@ -100,11 +91,11 @@ const CompanyStandards = () => {
       </div>
 
       {/* Feature grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-100">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {features.map((feature, i) => (
           <div
             key={i}
-            className="group bg-white p-8 md:p-10 flex flex-col gap-5 hover:bg-gray-50 transition-colors duration-300"
+            className="group shadow-xl bg-white p-8 md:p-10 flex flex-col gap-5 hover:bg-gray-50 transition-colors duration-300"
           >
             {/* Icon + number */}
             <div className="flex items-start justify-between">

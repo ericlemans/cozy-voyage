@@ -117,14 +117,14 @@ const TestimonialCarousel = () => {
         >
           {t('heading1')}<br />{t('heading2')}
         </h2>
-        <p className="text-white/40 font-light leading-relaxed md:max-w-sm md:text-right" style={{ fontSize: '16px' }}>
+        <p className="text-white/70 font-light leading-relaxed md:max-w-sm md:text-right" style={{ fontSize: '18px' }}>
           {t('subtitle')}
         </p>
       </div>
     </div>
 
     {/* Grid */}
-    <div className="mx-auto max-w-[1200px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.07] mb-20">
+    <div className="mx-auto max-w-[1200px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4  mb-20">
       {testimonials.map((testimonial, i) => (
         <div key={i} className="bg-black p-px">
           <TestimonialCard testimonial={testimonial} />

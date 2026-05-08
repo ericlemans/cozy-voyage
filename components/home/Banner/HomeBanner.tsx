@@ -49,12 +49,12 @@ const HomeBanner = () => {
           />
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/10 to-black/95" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/50 via-black/10 to-black/95" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/60 via-transparent to-transparent" />
 
         {/* Eyebrow — bottom right */}
         <p
-          className="absolute bottom-16 md:bottom-24 right-6 md:right-12 z-10 text-right text-rose-400 font-bold uppercase leading-none"
+          className="absolute xl:bottom-16 bottom-160 right-6 md:right-12 z-10 text-right xl:text-rose-400 text-rose-300 font-bold uppercase leading-none"
           style={{ fontSize: 'clamp(2rem, 5vw, 4.5rem)', letterSpacing: '-0.02em' }}
         >
           {t('bottomRight')}<br />{t('bottomRightCities')}
@@ -78,16 +78,16 @@ const HomeBanner = () => {
             </h1>
 
             {/* Subheadline */}
-            <p className="text-white/85 text-lg md:text-xl font-light mb-7 max-w-lg leading-relaxed">
+            <p className="text-white text-xl font-light mb-7 max-w-lg leading-relaxed">
               {t('subheadline')}
             </p>
 
             {/* Feature tags */}
             <div className="flex flex-wrap gap-2 mb-10">
-              {[t('tag0'), t('tag1'), t('tag2'), t('tag3')].map((tag) => (
+              {[t('tag0'), t('tag1')].map((tag) => (
                 <span
                   key={tag}
-                  className="text-white/75 text-xs font-medium border border-white/20 px-3 py-1.5 rounded-full backdrop-blur-sm bg-white/5"
+                  className="text-white/75 text-lg font-medium border border-white/20 px-3 py-1.5 rounded-full backdrop-blur-sm bg-white/5"
                   style={{ letterSpacing: '0.04em' }}
                 >
                   {tag}

@@ -216,7 +216,7 @@ const Gallery = () => {
           >
             {t('heading1')}<br />{t('heading2')}
           </h2>
-          <p className="text-sm font-light leading-relaxed text-white/45 md:max-w-sm">
+          <p className="text-lg font-light leading-relaxed text-white/70 md:max-w-sm">
             {t('subtitle')}
           </p>
         </div>
