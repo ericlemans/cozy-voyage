@@ -33,7 +33,7 @@ jobs:
           key: ${{ secrets.DO_SSH_KEY }}
           port: 22
           script: |
-            rm -rf ~/cozy-voyage.tar
+            rm -rf ~/output/cozy-voyage.tar
 
 
       - name: Upload Docker tar to remote server
@@ -88,4 +88,4 @@ jobs:
           key: ${{ secrets.DO_SSH_KEY }}
           port: 22
           script: |
-            rm -f ~/cozy-voyage.tar
+            rm -f ~/output/cozy-voyage.tar
