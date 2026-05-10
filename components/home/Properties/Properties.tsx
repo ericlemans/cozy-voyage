@@ -1,9 +1,10 @@
-'use client'
+'use client';
 
 import React from 'react';
 import Link from 'next/link';
 import PropertyCard from '@/components/home/Cards/PropertyCard';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 const properties = [
   {
@@ -99,6 +100,30 @@ const Properties = () => {
         {rest.map((property, i) => (
           <PropertyCard key={i} {...property} />
         ))}
+      </div>
+
+      <div className=' border-b-gray-200 border-b w-80 mx-auto my-20' />
+
+      <h2 className='text-black text-center underline'>You can find us at</h2>
+      <div className='flex gap-3 flex-col lg:flex-row justify-center items-center mt-10'>
+        <Link href="https://www.airbnb.de/users/profile/1465717917818336305"
+              target="_blank"
+              className="relative h-24 w-60 rounded-xl overflow-hidden "
+        >
+          <Image src="/assets/logos/Airbnb_logo.png" objectFit='cover' fill alt="Booking.com Logo" />
+        </Link>
+        <Link href="https://www.booking.com/hotel/de/cozy-voyage-stylish-135m2-for-up-to-9-people.en-gb.html"
+              target="_blank"
+              className="relative h-24 w-80 rounded overflow-hidden"
+        >
+          <Image src="/assets/logos/Booking_logo.png" objectFit='cover' fill alt="VRBO Logo" />
+        </Link>
+        <Link href="https://www.vrbo.com/5622160ha"
+              target="_blank"
+              className="relative h-24 w-80 rounded overflow-hidden"
+        >
+          <Image src="/assets/logos/Vrbo_logo.png" objectFit='contain' fill alt="Airbnb Logo" />
+        </Link>
       </div>
     </section>
   );
