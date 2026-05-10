@@ -5,10 +5,11 @@ WORKDIR /app
 
 # Install all deps for build
 COPY package*.json ./
-RUN npm i
+RUN npm ci
 
 # Copy everything and build Next.js
 COPY . .
+RUN rm -rf .next
 RUN npm run build
 
 # Prune dev deps after building
