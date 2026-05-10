@@ -17,7 +17,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t cozy-voyage:latest .
+          docker build --no-cache -t cozy-voyage:latest .
 
       - name: Save Docker image as tar
         run: |
