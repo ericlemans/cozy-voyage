@@ -15,7 +15,8 @@
     "label": "Direkt buchen",
     "heading1": "Unsere",
     "heading2": "Wohnungen",
-    "viewAll": "Alle Objekte ansehen"
+    "viewAll": "Alle Objekte ansehen",
+    "youCanFindUsAt": "Du findest uns auch bei"
   },
   "propertyCard": {
     "guests": "bis zu {count} Gäste",

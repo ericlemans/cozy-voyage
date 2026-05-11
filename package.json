@@ -16,7 +16,6 @@
     "@types/leaflet": "^1.9.18",
     "framer-motion": "^12.10.5",
     "leaflet": "^1.9.4",
-    "lucide": "^0.511.0",
     "lucide-react": "^1.14.0",
     "mapbox-gl": "^3.13.0",
     "next": "16.2.6",

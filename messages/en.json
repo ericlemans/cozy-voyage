@@ -15,7 +15,8 @@
     "label": "Book Direct",
     "heading1": "Our",
     "heading2": "Apartments",
-    "viewAll": "View all properties"
+    "viewAll": "View all properties",
+    "youCanFindUsAt": "You can also find us on"
   },
   "propertyCard": {
     "guests": "up to {count} guests",

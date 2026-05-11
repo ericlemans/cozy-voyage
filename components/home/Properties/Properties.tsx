@@ -104,7 +104,7 @@ const Properties = () => {
 
       <div className=' border-b-gray-200 border-b w-80 mx-auto my-20' />
 
-      <h2 className='text-black text-center underline'>You can find us at</h2>
+      <h2 className='text-rose-500 font-medium text-center uppercase pb-4'>{t('youCanFindUsAt')}</h2>
       <div className='flex gap-3 flex-col lg:flex-row justify-center items-center mt-10'>
         <Link href="https://www.airbnb.de/users/profile/1465717917818336305"
               target="_blank"
@@ -120,7 +120,7 @@ const Properties = () => {
         </Link>
         <Link href="https://www.vrbo.com/5622160ha"
               target="_blank"
-              className="relative h-24 w-80 rounded overflow-hidden"
+              className="relative h-24 w-60 rounded overflow-hidden"
         >
           <Image src="/assets/logos/Vrbo_logo.png" objectFit='contain' fill alt="Airbnb Logo" />
         </Link>
