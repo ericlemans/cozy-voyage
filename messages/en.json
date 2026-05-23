@@ -1,6 +1,7 @@
 {
   "header": {
-    "cta": "Book Now"
+    "cta": "Book Now",
+    "guide": "City Guide"
   },
   "banner": {
     "eyebrow": "Design Apartments · Berlin & Dresden",
@@ -89,6 +90,19 @@
     "ctaNote": "Response within 1 hour · Direct billing available",
     "extended": "Weekly & monthly pricing on request · Multi-property bookings for teams"
   },
+  "cityGuide": {
+    "label": "Insider Tips",
+    "heading1": "Your local",
+    "heading2": "guide.",
+    "subtitle": "Our personal recommendations — the places we love and want you to discover.",
+    "visit": "Places to Visit",
+    "eat": "Where to Eat",
+    "shop": "Shopping",
+    "bike": "Bike Rental",
+    "parking": "Parking",
+    "accessibility": "Accessibility",
+    "privateParkingNote": "Private parking available next to the flat — subject to availability. Contact us to reserve."
+  },
   "gallery": {
     "label": "Our Properties",
     "heading1": "In",
@@ -109,6 +123,7 @@
     "tagline": "Feel at home wherever you are.",
     "companyHeading": "Company",
     "aboutUs": "About Us",
+    "cityGuideLink": "City Guide",
     "supportHeading": "Support",
     "contact": "Contact",
     "corporateInquiry": "Corporate Inquiry",

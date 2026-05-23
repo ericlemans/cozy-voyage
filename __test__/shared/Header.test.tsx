@@ -5,6 +5,7 @@ import { IntlWrapper } from '../utils/intl-wrapper';
 
 jest.mock('next-intl', () => ({
   useLocale: () => 'de',
+  useTranslations: () => (key: string) => key,
   NextIntlClientProvider: ({ children }: { children: React.ReactNode }) => <>{children}</>,
 }));
 
@@ -12,6 +13,9 @@ jest.mock('@/navigation', () => ({
   useRouter: () => ({ replace: jest.fn() }),
   usePathname: () => '/',
   locales: ['de', 'en'],
+  Link: ({ href, children, ...rest }: { href: string; children: React.ReactNode; [key: string]: unknown }) => (
+    <a href={href} {...rest}>{children}</a>
+  ),
 }));
 
 describe('Header', () => {

@@ -2,8 +2,8 @@
 
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter, usePathname } from '@/navigation';
+import { Link } from '@/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { locales } from '@/navigation';
 import { LODGIFY } from '@/lib/lodgify';
@@ -30,6 +30,38 @@ export default function Header() {
       </a>
 
       <div className="flex items-center gap-4">
+        {/* City Guide dropdown */}
+        <div className="relative group hidden md:block">
+          <button
+            className="flex items-center gap-1.5 text-white/70 hover:text-white text-xs font-semibold uppercase transition-colors duration-200 cursor-default"
+            style={{ letterSpacing: '0.12em' }}
+            tabIndex={0}
+          >
+            {t('guide')}
+            <svg className="w-3 h-3 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div className="absolute top-full -left-4 pt-3 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 z-50">
+            <div className="bg-black/95 backdrop-blur-sm border border-white/10 py-1 min-w-[140px]">
+              <Link
+                href="/guide?city=berlin"
+                className="block px-5 py-2.5 text-white/70 hover:text-white hover:bg-white/5 text-xs font-semibold uppercase transition-colors duration-150"
+                style={{ letterSpacing: '0.12em' }}
+              >
+                Berlin
+              </Link>
+              <Link
+                href="/guide?city=dresden"
+                className="block px-5 py-2.5 text-white/70 hover:text-white hover:bg-white/5 text-xs font-semibold uppercase transition-colors duration-150"
+                style={{ letterSpacing: '0.12em' }}
+              >
+                Dresden
+              </Link>
+            </div>
+          </div>
+        </div>
+
         {/* Locale switcher */}
         <div className="flex items-center gap-1">
           {locales.map((l, i) => (

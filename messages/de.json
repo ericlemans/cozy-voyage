@@ -1,6 +1,7 @@
 {
   "header": {
-    "cta": "Jetzt buchen"
+    "cta": "Jetzt buchen",
+    "guide": "Stadtführer"
   },
   "banner": {
     "eyebrow": "Designwohnungen · Berlin & Dresden",
@@ -89,6 +90,19 @@
     "ctaNote": "Antwort innerhalb einer Stunde · Direktabrechnung möglich",
     "extended": "Wochen- & Monatspreise auf Anfrage · Mehrere Objekte für Teams buchbar"
   },
+  "cityGuide": {
+    "label": "Insider-Tipps",
+    "heading1": "Dein lokaler",
+    "heading2": "Stadtführer.",
+    "subtitle": "Unsere persönlichen Empfehlungen — die Orte, die wir lieben und die du entdecken solltest.",
+    "visit": "Sehenswürdigkeiten",
+    "eat": "Essen & Trinken",
+    "shop": "Shopping",
+    "bike": "Fahrradverleih",
+    "parking": "Parken",
+    "accessibility": "Barrierefreiheit",
+    "privateParkingNote": "Privater Parkplatz direkt neben der Wohnung verfügbar — auf Anfrage, je nach Verfügbarkeit."
+  },
   "gallery": {
     "label": "Unsere Wohnungen",
     "heading1": "In",
@@ -109,6 +123,7 @@
     "tagline": "Zu Hause, wo immer du bist.",
     "companyHeading": "Unternehmen",
     "aboutUs": "Über uns",
+    "cityGuideLink": "Stadtführer",
     "supportHeading": "Kundendienst",
     "contact": "Kontakt",
     "corporateInquiry": "Firmenanfrage",

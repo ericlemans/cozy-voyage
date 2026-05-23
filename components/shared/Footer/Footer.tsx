@@ -24,6 +24,7 @@ const Footer = () => {
             <h3 className="text-white font-semibold mb-3">{t('companyHeading')}</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/about" className="hover:text-white">{t('aboutUs')}</Link></li>
+              <li><Link href="/guide" className="hover:text-white">{t('cityGuideLink')}</Link></li>
               <li><Link href="/impressum" className="hover:text-white">Impressum</Link></li>
               <li><Link href="/agb" className="hover:text-white">AGB</Link></li>
             </ul>

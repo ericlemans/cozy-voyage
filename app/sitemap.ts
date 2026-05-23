@@ -17,6 +17,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
+      url: `${SITE_URL}/de/guide`,
+      lastModified: new Date(),
+      alternates: { languages: { en: `${SITE_URL}/en/guide` } },
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/de/about`,
+      lastModified: new Date(),
+      alternates: { languages: { en: `${SITE_URL}/en/about` } },
+      priority: 0.6,
+    },
+    {
       url: `${SITE_URL}/de/impressum`,
       lastModified: new Date(),
       priority: 0.2,
