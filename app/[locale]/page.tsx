@@ -1,6 +1,7 @@
 import HomeBanner from '@/components/home/Banner/HomeBanner';
 import Properties from '@/components/home/Properties/Properties';
 import CompanyStandards from '@/components/home/CompanyStandards/CompanyStandards';
+import BusinessTravel from '@/components/home/BusinessTravel/BusinessTravel';
 import TestimonialCarousel from '@/components/home/TestimonialCarousel/TestimonialCarousel';
 import Gallery from '@/components/home/Gallery/Gallery';
 
@@ -15,6 +16,7 @@ export default function Home() {
           <CompanyStandards />
         </div>
         <Gallery />
+        <BusinessTravel />
         <TestimonialCarousel />
     </div>
   );

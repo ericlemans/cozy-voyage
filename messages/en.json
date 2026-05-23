@@ -1,14 +1,18 @@
 {
+  "header": {
+    "cta": "Book Now"
+  },
   "banner": {
-    "eyebrow": "Holiday Apartments · Berlin & Dresden",
+    "eyebrow": "Design Apartments · Berlin & Dresden",
     "subheadline": "Fully equipped designer apartments in prime locations — better than a hotel, more personal than Airbnb.",
     "tag0": "Self Check-in 24/7",
     "tag1": "Everything included",
     "tag2": "Deep cleaning",
     "tag3": "Central location",
     "cta": "All Properties",
+    "scrollCta": "Browse on this page",
     "explore": "Explore",
-    "bottomRight": "Holiday Apartments",
+    "bottomRight": "Design Apartments",
     "bottomRightCities": "Berlin & Dresden"
   },
   "properties": {
@@ -16,7 +20,14 @@
     "heading1": "Our",
     "heading2": "Apartments",
     "viewAll": "View all properties",
-    "youCanFindUsAt": "You can also find us on"
+    "youCanFindUsAt": "You can also find us on",
+    "corporateNote": "Weekly & monthly rates available · Invoice on company name · VAT receipt included"
+  },
+  "propertyTitles": {
+    "berlin": "Stylish 135m² at Ku'damm",
+    "dresdenfk1": "Frauenkirche — 2–4 Guests",
+    "dresdenfk2": "Frauenkirche — 4–6 Guests",
+    "dresdenaltstadt": "Altstadt Centre — 8 Guests"
   },
   "propertyCard": {
     "guests": "up to {count} guests",
@@ -29,8 +40,8 @@
     "heading2": "can expect",
     "subtitle": "Every stay meets our high standards — so you can simply arrive and enjoy.",
     "wifi": {
-      "title": "Fast Wi-Fi Access",
-      "description": "Ideal for streaming, video calls and multiple simultaneous connections."
+      "title": "High-Speed Wi-Fi",
+      "description": "Fast, reliable connection — ideal for streaming, video calls, and staying connected."
     },
     "checkin": {
       "title": "Self Check-In at Any Hour",
@@ -52,6 +63,31 @@
       "title": "Deep Cleaning — Every Time",
       "description": "Impeccable cleanliness for every stay. Our reviews speak for themselves."
     }
+  },
+  "businessTravel": {
+    "label": "For Business Travelers",
+    "heading1": "Your office",
+    "heading2": "away from home.",
+    "subtitle": "Designed for professionals on the move. Invoice on company name, work-grade infrastructure, and flexible check-in — everything you need for a productive stay in Berlin or Dresden.",
+    "invoice": {
+      "title": "Invoice & VAT Receipt",
+      "description": "Book for your company. We issue invoices with full VAT breakdown — compatible with German Reisekostenabrechnung requirements."
+    },
+    "wifi": {
+      "title": "Work-Grade Wi-Fi",
+      "description": "300 Mbps fiber in every apartment. Tested for full-day video conferencing, VPN access, and multiple simultaneous devices."
+    },
+    "workspace": {
+      "title": "Dedicated Workspace",
+      "description": "Every apartment has a proper desk and ergonomic setup. Work productively without sacrificing your living space."
+    },
+    "teams": {
+      "title": "Team & Group Stays",
+      "description": "Our Berlin Ku'damm apartment sleeps up to 6 — ideal for project teams, off-sites, and relocation stays. Three times the space of a hotel room at a comparable price."
+    },
+    "cta": "Contact for Corporate Rates",
+    "ctaNote": "Response within 1 hour · Direct billing available",
+    "extended": "Weekly & monthly pricing on request · Multi-property bookings for teams"
   },
   "gallery": {
     "label": "Our Properties",
@@ -75,6 +111,7 @@
     "aboutUs": "About Us",
     "supportHeading": "Support",
     "contact": "Contact",
+    "corporateInquiry": "Corporate Inquiry",
     "privacyPolicy": "Privacy Policy",
     "copyright": "© {year} Cozy Voyage GmbH. All rights reserved."
   }

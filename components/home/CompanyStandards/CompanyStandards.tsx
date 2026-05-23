@@ -55,7 +55,7 @@ const CompanyStandards = () => {
           >
             {t('heading1')}<br />{t('heading2')}
           </h2>
-          <p className="text-gray-500 font-light max-w-sm md:text-right leading-relaxed" style={{ fontSize: '16px' }}>
+          <p className="text-gray-600 max-w-sm md:text-right leading-relaxed" style={{ fontSize: '16px' }}>
             {t('subtitle')}
           </p>
         </div>
@@ -89,7 +89,7 @@ const CompanyStandards = () => {
               >
                 {t(`${feature.key}.title`)}
               </h3>
-              <p className="text-gray-500 leading-relaxed" style={{ fontSize: '16px', color: '#6b7280' }}>
+              <p className="text-gray-600 leading-relaxed" style={{ fontSize: '16px' }}>
                 {t(`${feature.key}.description`)}
               </p>
             </div>

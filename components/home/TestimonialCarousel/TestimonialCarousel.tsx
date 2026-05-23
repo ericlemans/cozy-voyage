@@ -68,7 +68,7 @@ const Stars = ({ count }: { count: number }) => (
     {Array.from({ length: 5 }).map((_, i) => (
       <svg
         key={i}
-        className={`w-3.5 h-3.5 ${i < count ? 'text-rose-500' : 'text-white/15'}`}
+        className={`w-3.5 h-3.5 ${i < count ? 'text-rose-500' : 'text-white/20'}`}
         viewBox="0 0 20 20"
         fill="currentColor"
       >
@@ -79,9 +79,9 @@ const Stars = ({ count }: { count: number }) => (
 );
 
 const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[number] }) => (
-  <div className="flex flex-col bg-[#111] border border-white/[0.07] rounded-sm p-7 h-full">
+  <div className="flex flex-col bg-[#111] border border-white/[0.08] rounded-sm p-7 h-full">
     <Stars count={testimonial.stars} />
-    <p className="text-white/70 text-sm font-light leading-relaxed flex-1 mb-6">
+    <p className="text-white/85 text-sm leading-relaxed flex-1 mb-6">
       &ldquo;{testimonial.text}&rdquo;
     </p>
     <div>
@@ -89,7 +89,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[num
       <p className="text-white text-xs font-semibold uppercase tracking-widest">
         {testimonial.guest} · {testimonial.country}
       </p>
-      <p className="text-white/35 text-xs mt-1">{testimonial.listing}</p>
+      <p className="text-white/55 text-xs mt-1">{testimonial.listing}</p>
     </div>
   </div>
 );
@@ -102,7 +102,7 @@ const TestimonialCarousel = () => {
     <div className="mx-auto mb-16 max-w-[1200px]">
       <p
         className="text-rose-500 font-medium uppercase mb-4"
-        style={{ fontSize: '11px', letterSpacing: '0.25em' }}
+        style={{ fontSize: '13px', letterSpacing: '0.25em' }}
       >
         {t('label')}
       </p>
@@ -117,14 +117,14 @@ const TestimonialCarousel = () => {
         >
           {t('heading1')}<br />{t('heading2')}
         </h2>
-        <p className="text-white/70 font-light leading-relaxed md:max-w-sm md:text-right" style={{ fontSize: '18px' }}>
+        <p className="text-white/75 leading-relaxed md:max-w-sm md:text-right" style={{ fontSize: '17px' }}>
           {t('subtitle')}
         </p>
       </div>
     </div>
 
     {/* Grid */}
-    <div className="mx-auto max-w-[1200px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4  mb-20">
+    <div className="mx-auto max-w-[1200px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
       {testimonials.map((testimonial, i) => (
         <div key={i} className="bg-black p-px">
           <TestimonialCard testimonial={testimonial} />
