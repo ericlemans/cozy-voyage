@@ -30,6 +30,24 @@ export default function Header() {
       </a>
 
       <div className="flex items-center gap-4">
+        {/* Home */}
+        <Link
+          href="/"
+          className="hidden md:block text-white/70 hover:text-white text-xs font-semibold uppercase transition-colors duration-200"
+          style={{ letterSpacing: '0.12em' }}
+        >
+          {t('home')}
+        </Link>
+
+        {/* About */}
+        <Link
+          href="/about"
+          className="hidden md:block text-white/70 hover:text-white text-xs font-semibold uppercase transition-colors duration-200"
+          style={{ letterSpacing: '0.12em' }}
+        >
+          {t('about')}
+        </Link>
+
         {/* City Guide dropdown */}
         <div className="relative group hidden md:block">
           <button

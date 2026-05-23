@@ -1,9 +1,37 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import type { Metadata } from 'next';
+import { getLocale } from 'next-intl/server';
 import { LODGIFY } from '@/lib/lodgify';
 
-export default function AboutPage() {
+const SITE_URL = 'https://cozy-voyage.com';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isEN = locale === 'en';
+  return {
+    title: isEN ? 'About Us | Cozy Voyage' : 'Über uns | Cozy Voyage',
+    description: isEN
+      ? 'Susi & Eric — two travellers who turned their love of beautiful spaces into Cozy Voyage. Design apartments in Berlin & Dresden, run with personal care.'
+      : 'Susi & Eric — zwei Reisende, die ihre Liebe zu schönen Orten in Cozy Voyage verwandelt haben. Designwohnungen in Berlin & Dresden, persönlich betreut.',
+    alternates: {
+      canonical: `${SITE_URL}/${locale}/about`,
+      languages: {
+        de: `${SITE_URL}/de/about`,
+        en: `${SITE_URL}/en/about`,
+        'x-default': `${SITE_URL}/de/about`,
+      },
+    },
+  };
+}
+
+export default async function AboutPage() {
+  const locale = await getLocale();
   return (
     <div className="bg-white text-black">
       {/* Hero */}
@@ -123,7 +151,7 @@ export default function AboutPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href={LODGIFY.all('de')}
+              href={LODGIFY.all(locale)}
               target="_blank"
               className="group inline-flex items-center gap-3 bg-rose-600 hover:bg-rose-500 text-white px-8 py-4 text-sm font-semibold uppercase transition-all duration-300"
               style={{ letterSpacing: '0.12em' }}

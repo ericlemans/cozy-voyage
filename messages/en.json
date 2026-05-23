@@ -1,6 +1,8 @@
 {
   "header": {
     "cta": "Book Now",
+    "home": "Home",
+    "about": "About",
     "guide": "City Guide"
   },
   "banner": {
