@@ -11,10 +11,64 @@ import { routing } from '@/routing';
 
 const leagueSpartanSans = League_Spartan({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-  title: 'Cozy Voyage | Ferienwohnungen',
-  description: 'Stilvolle Ferienunterkünfte im Zentrum von Berlin und Dresden',
-};
+const SITE_URL = 'https://cozy-voyage.com';
+const OG_IMAGE = `${SITE_URL}/assets/images/Berlin_Ks_1.jpeg`;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isEN = locale === 'en';
+
+  const title = isEN
+    ? 'Cozy Voyage | Design Apartments Berlin & Dresden'
+    : 'Cozy Voyage | Designwohnungen Berlin & Dresden';
+
+  const description = isEN
+    ? 'Stylish, fully equipped apartments in the heart of Berlin and Dresden. Better than a hotel, more personal than Airbnb — perfect for city breaks, extended stays, and business travel.'
+    : 'Vollausgestattete Designwohnungen in Berlin und Dresden. Besser als ein Hotel, persönlicher als Airbnb — ideal für Städtereisen, Langzeitaufenthalte und Geschäftsreisen.';
+
+  const ogDescription = isEN
+    ? 'Self check-in 24/7 · Fully equipped · Deep cleaned after every stay.'
+    : 'Self Check-in 24/7 · Vollausgestattet · Tiefenreinigung nach jedem Aufenthalt.';
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `${SITE_URL}/${locale}`,
+      languages: {
+        de: `${SITE_URL}/de`,
+        en: `${SITE_URL}/en`,
+        'x-default': `${SITE_URL}/de`,
+      },
+    },
+    openGraph: {
+      title,
+      description: ogDescription,
+      url: `${SITE_URL}/${locale}`,
+      siteName: 'Cozy Voyage',
+      type: 'website',
+      locale: isEN ? 'en_US' : 'de_DE',
+      images: [
+        {
+          url: OG_IMAGE,
+          width: 1200,
+          height: 800,
+          alt: 'Cozy Voyage — Design Apartments Berlin & Dresden',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: ogDescription,
+      images: [OG_IMAGE],
+    },
+  };
+}
 
 export default async function LocaleLayout({
   children,

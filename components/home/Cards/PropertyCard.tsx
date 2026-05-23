@@ -33,13 +33,15 @@ const PropertyCard = ({ title, location, city, guests, minPrice, image, href, fe
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       />
 
-      {/* Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+      {/* Bottom gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+      {/* Top gradient — ensures badge legibility */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent" />
 
       {/* City badge */}
       <div className="absolute top-5 left-5">
         <span
-          className="bg-white/10 backdrop-blur-sm border border-white/20 text-white text-xs font-medium px-3 py-1.5 uppercase"
+          className="bg-black/50 backdrop-blur-sm border border-white/40 text-white text-xs font-semibold px-3 py-1.5 uppercase"
           style={{ letterSpacing: '0.15em', borderRadius: '2px' }}
         >
           {city}
@@ -49,31 +51,31 @@ const PropertyCard = ({ title, location, city, guests, minPrice, image, href, fe
       {/* Content */}
       <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
         <p
-          className="text-rose-400 text-xs uppercase mb-2"
-          style={{ letterSpacing: '0.2em' }}
+          className="text-white/80 text-xs uppercase mb-2"
+          style={{ letterSpacing: '0.18em' }}
         >
-          {city} - {location}
+          {location}
         </p>
 
         <h3
           className="text-white font-bold leading-tight mb-4"
-          style={{ fontSize: featured ? 'clamp(1.5rem, 3vw, 2.25rem)' : '1.25rem', color: 'white', letterSpacing: '-0.01em' }}
+          style={{ fontSize: featured ? 'clamp(1.5rem, 3vw, 2.25rem)' : '1.25rem', letterSpacing: '-0.01em' }}
         >
           {title}
         </h3>
 
         <div className="flex items-end justify-between">
           <div className="flex flex-col gap-1">
-            <span className="text-white/50 text-xs uppercase" style={{ letterSpacing: '0.1em' }}>
+            <span className="text-white/70 text-xs uppercase" style={{ letterSpacing: '0.1em' }}>
               {t('guests', { count: guests })}
             </span>
             <div className="flex items-baseline gap-1">
               <span className="text-white font-bold text-xl">€{minPrice}</span>
-              <span className="text-white/50 text-sm">{t('night')}</span>
+              <span className="text-white/70 text-sm">{t('night')}</span>
             </div>
           </div>
 
-          <div className="flex items-center gap-2 text-white/60 text-sm font-medium group-hover:text-white transition-colors duration-300">
+          <div className="flex items-center gap-2 text-white/80 text-sm font-semibold group-hover:text-white transition-colors duration-300">
             <span className="uppercase" style={{ letterSpacing: '0.08em', fontSize: '0.75rem' }}>{t('book')}</span>
             <svg
               className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"

@@ -1,14 +1,21 @@
 {
+  "header": {
+    "cta": "Jetzt buchen",
+    "home": "Home",
+    "about": "Über uns",
+    "guide": "Stadtführer"
+  },
   "banner": {
-    "eyebrow": "Ferienwohnungen · Berlin & Dresden",
+    "eyebrow": "Designwohnungen · Berlin & Dresden",
     "subheadline": "Vollausgestattete Designwohnungen in bester Lage — besser als ein Hotel, persönlicher als Airbnb.",
     "tag0": "Self Check-in 24/7",
     "tag1": "Vollausstattung inklusive",
     "tag2": "Tiefenreinigung",
     "tag3": "Zentrale Lage",
     "cta": "Alle Objekte",
+    "scrollCta": "Auf dieser Seite entdecken",
     "explore": "Entdecken",
-    "bottomRight": "Ferienwohnungen",
+    "bottomRight": "Designwohnungen",
     "bottomRightCities": "Berlin & Dresden"
   },
   "properties": {
@@ -16,7 +23,14 @@
     "heading1": "Unsere",
     "heading2": "Wohnungen",
     "viewAll": "Alle Objekte ansehen",
-    "youCanFindUsAt": "Du findest uns auch bei"
+    "youCanFindUsAt": "Du findest uns auch bei",
+    "corporateNote": "Wochen- & Monatsraten verfügbar · Rechnung auf Firmenname · MwSt-Ausweis inklusive"
+  },
+  "propertyTitles": {
+    "berlin": "Stylish 135m² am Ku'damm",
+    "dresdenfk1": "Frauenkirche — Für 2–4 Personen",
+    "dresdenfk2": "Frauenkirche — Für 4–6 Personen",
+    "dresdenaltstadt": "Altstadt Zentrum — Für 8 Personen"
   },
   "propertyCard": {
     "guests": "bis zu {count} Gäste",
@@ -29,8 +43,8 @@
     "heading2": "erwarten kannst",
     "subtitle": "Jeder Aufenthalt entspricht unseren hohen Standards — damit du einfach ankommst und genießt.",
     "wifi": {
-      "title": "Schneller Wi-Fi-Zugang",
-      "description": "Ideal für Streaming, Videoanrufe und mehrere Verbindungen gleichzeitig."
+      "title": "Schnelles WLAN",
+      "description": "Schnelle, zuverlässige Verbindung — ideal für Streaming, Videoanrufe und immer erreichbar zu sein."
     },
     "checkin": {
       "title": "Self Check-In zu jeder Stunde",
@@ -53,6 +67,44 @@
       "description": "Makellose Sauberkeit bei jedem Aufenthalt. Unsere Bewertungen sprechen für uns."
     }
   },
+  "businessTravel": {
+    "label": "Für Geschäftsreisende",
+    "heading1": "Ihr Büro",
+    "heading2": "fern von zu Hause.",
+    "subtitle": "Konzipiert für Profis unterwegs. Rechnung auf Firmenname, business-taugliche Infrastruktur und flexibler Check-in — alles, was Sie für einen produktiven Aufenthalt in Berlin oder Dresden brauchen.",
+    "invoice": {
+      "title": "Rechnung & MwSt-Ausweis",
+      "description": "Buchen Sie auf Firmenaccount. Wir stellen Rechnungen mit vollständigem Mehrwertsteuerausweis aus — kompatibel mit deutschen Reisekostenabrechnungsanforderungen."
+    },
+    "wifi": {
+      "title": "Business-WLAN",
+      "description": "300 Mbit/s Glasfaser in jeder Wohnung. Getestet für ganztägige Videokonferenzen, VPN-Zugang und mehrere gleichzeitige Geräte."
+    },
+    "workspace": {
+      "title": "Dedizierter Arbeitsplatz",
+      "description": "Jede Wohnung verfügt über einen richtigen Schreibtisch und ergonomisches Setup. Arbeiten Sie produktiv, ohne auf Wohnkomfort verzichten zu müssen."
+    },
+    "teams": {
+      "title": "Team- & Gruppenaufenthalte",
+      "description": "Unsere Berliner Ku'damm-Wohnung bietet Platz für bis zu 6 Personen — ideal für Projektteams, Offsites und Relocation-Aufenthalte. Dreimal so viel Platz wie ein Hotelzimmer zu vergleichbarem Preis."
+    },
+    "cta": "Anfrage für Firmentarife",
+    "ctaNote": "Antwort innerhalb einer Stunde · Direktabrechnung möglich",
+    "extended": "Wochen- & Monatspreise auf Anfrage · Mehrere Objekte für Teams buchbar"
+  },
+  "cityGuide": {
+    "label": "Insider-Tipps",
+    "heading1": "Dein lokaler",
+    "heading2": "Stadtführer.",
+    "subtitle": "Unsere persönlichen Empfehlungen — die Orte, die wir lieben und die du entdecken solltest.",
+    "visit": "Sehenswürdigkeiten",
+    "eat": "Essen & Trinken",
+    "shop": "Shopping",
+    "bike": "Fahrradverleih",
+    "parking": "Parken",
+    "accessibility": "Barrierefreiheit",
+    "privateParkingNote": "Privater Parkplatz direkt neben der Wohnung verfügbar — auf Anfrage, je nach Verfügbarkeit."
+  },
   "gallery": {
     "label": "Unsere Wohnungen",
     "heading1": "In",
@@ -73,8 +125,10 @@
     "tagline": "Zu Hause, wo immer du bist.",
     "companyHeading": "Unternehmen",
     "aboutUs": "Über uns",
+    "cityGuideLink": "Stadtführer",
     "supportHeading": "Kundendienst",
     "contact": "Kontakt",
+    "corporateInquiry": "Firmenanfrage",
     "privacyPolicy": "Datenschutz",
     "copyright": "© {year} Cozy Voyage GmbH. Alle Rechte vorbehalten."
   }

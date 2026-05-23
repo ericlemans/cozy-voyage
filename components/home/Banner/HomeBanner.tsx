@@ -3,28 +3,24 @@
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useTranslations } from 'next-intl'; 
+import { useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
+import { LODGIFY } from '@/lib/lodgify';
 
-const destinations = [
-  {
-    city: 'Berlin',
-    location: "Ku'damm",
-    imgSrc: '/assets/images/Berlin.webp',
-    href: 'https://cozy-voyage.lodgify.com/de/4578016/alle-objekte?adults=1&sort=price&city=Berlin',
-  },
-  {
-    city: 'Dresden',
-    location: 'Frauenkirche',
-    imgSrc: '/assets/images/Dresden.jpeg',
-    href: 'https://cozy-voyage.lodgify.com/de/4578016/alle-objekte?adults=1&sort=price&city=Dresden',
-  },
+const DESTINATIONS = [
+  { city: 'Berlin', location: "Ku'damm", imgSrc: '/assets/images/Berlin.webp' },
+  { city: 'Dresden', location: 'Frauenkirche', imgSrc: '/assets/images/Dresden.jpeg' },
 ];
 
 const HomeBanner = () => {
   const t = useTranslations('banner');
+  const locale = useLocale();
   const parallaxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.innerWidth < 768) return;
+
     const onScroll = () => {
       if (parallaxRef.current) {
         parallaxRef.current.style.transform = `translateY(${window.scrollY * 0.35}px)`;
@@ -67,11 +63,7 @@ const HomeBanner = () => {
             {/* Headline */}
             <h1
               className="text-white font-bold leading-none mb-6"
-              style={{
-                fontSize: 'clamp(3rem, 8vw, 7rem)',
-                letterSpacing: '-0.02em',
-                lineHeight: 1.0,
-              }}
+              style={{ fontSize: 'clamp(3rem, 8vw, 7rem)', letterSpacing: '-0.02em', lineHeight: 1.0 }}
             >
               Cozy<br />
               <span className="text-rose-400">Voyage</span>
@@ -84,10 +76,10 @@ const HomeBanner = () => {
 
             {/* Feature tags */}
             <div className="flex flex-wrap gap-2 mb-10">
-              {[t('tag0'), t('tag1')].map((tag) => (
+              {[t('tag0'), t('tag1'), t('tag2'), t('tag3')].map((tag) => (
                 <span
                   key={tag}
-                  className="text-white/75 text-lg font-medium border border-white/20 px-3 py-1.5 rounded-full backdrop-blur-sm bg-white/5"
+                  className="text-white/75 text-sm md:text-base font-medium border border-white/20 px-3 py-1.5 rounded-full backdrop-blur-sm bg-white/5"
                   style={{ letterSpacing: '0.04em' }}
                 >
                   {tag}
@@ -98,7 +90,7 @@ const HomeBanner = () => {
             {/* CTA row */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <Link
-                href="https://cozy-voyage.lodgify.com/de/4578016/alle-objekte"
+                href={LODGIFY.all(locale)}
                 target="_blank"
                 className="group inline-flex items-center gap-3 bg-rose-600 hover:bg-rose-500 text-white px-8 py-4 text-sm font-semibold tracking-widest uppercase transition-all duration-300"
                 style={{ letterSpacing: '0.12em' }}
@@ -106,8 +98,7 @@ const HomeBanner = () => {
                 {t('cta')}
                 <svg
                   className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none" stroke="currentColor" strokeWidth={2}
-                  viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -116,12 +107,12 @@ const HomeBanner = () => {
               <span className="hidden sm:block w-px h-8 bg-white/20" />
 
               <div className="flex gap-6">
-                {destinations.map((d) => (
+                {DESTINATIONS.map((d) => (
                   <Link
                     key={d.city}
-                    href={d.href}
+                    href={LODGIFY.city(locale, d.city)}
                     target="_blank"
-                    className="text-white/60 hover:text-white text-sm font-medium tracking-wide uppercase transition-colors duration-200 underline-offset-4 hover:underline"
+                    className="text-white/80 hover:text-white text-base font-semibold tracking-wide uppercase transition-colors duration-200 underline-offset-4 hover:underline"
                     style={{ letterSpacing: '0.1em' }}
                   >
                     {d.city}
@@ -129,6 +120,17 @@ const HomeBanner = () => {
                 ))}
               </div>
             </div>
+
+            {/* Scroll CTA */}
+            <a
+              href="#properties"
+              className="inline-flex items-center gap-2 mt-5 text-white/55 hover:text-white/90 text-sm transition-colors duration-200"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+              {t('scrollCta')}
+            </a>
           </div>
         </div>
 
@@ -144,10 +146,10 @@ const HomeBanner = () => {
       {/* Destination cards */}
       <div className="container mx-auto px-6 md:px-12 py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          {destinations.map((d) => (
+          {DESTINATIONS.map((d) => (
             <Link
               key={d.city}
-              href={d.href}
+              href={LODGIFY.city(locale, d.city)}
               target="_blank"
               className="group relative overflow-hidden block"
               style={{ aspectRatio: '16/9' }}
@@ -160,33 +162,29 @@ const HomeBanner = () => {
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
 
-              {/* Card gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-              {/* Card content */}
               <div className="absolute inset-0 flex flex-col justify-end p-8">
-                <p className="text-rose-400 text-xs tracking-widest uppercase mb-2" style={{ letterSpacing: '0.2em' }}>
+                <p className="text-white/80 text-xs uppercase mb-2" style={{ letterSpacing: '0.2em' }}>
                   {d.location}
                 </p>
                 <h2
                   className="text-white font-bold leading-none mb-4"
-                  style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '-0.02em', color: 'white' }}
+                  style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '-0.02em' }}
                 >
                   {d.city}
                 </h2>
-                <div className="flex items-center gap-2 text-white/60 text-sm font-medium tracking-wide group-hover:text-white transition-colors duration-300">
+                <div className="flex items-center gap-2 text-white/80 text-base font-semibold tracking-wide group-hover:text-white transition-colors duration-300">
                   <span>{t('explore')}</span>
                   <svg
                     className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                    fill="none" stroke="currentColor" strokeWidth={2}
-                    viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </div>
               </div>
 
-              {/* Hover accent line */}
               <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-rose-500 transition-all duration-500 group-hover:w-full" />
             </Link>
           ))}
