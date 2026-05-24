@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { MapPinIcon, UtensilsIcon, ShoppingBagIcon, BikeIcon, ParkingCircleIcon, AccessibilityIcon, ExternalLinkIcon } from 'lucide-react';
@@ -155,6 +155,10 @@ export default function CityGuide({ initialCity = 'berlin' }: { initialCity?: Ci
   const t = useTranslations('cityGuide');
   const [city, setCity] = useState<City>(initialCity);
   const guide = GUIDE[city];
+
+  useEffect(() => {
+    setCity(initialCity)
+  }, [initialCity]);
 
   return (
     <section id="city-guide" className="bg-[#f9f8f6]">
