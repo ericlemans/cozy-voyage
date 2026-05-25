@@ -17,6 +17,10 @@ const HomeBanner = () => {
   const locale = useLocale();
   const parallaxRef = useRef<HTMLDivElement>(null);
 
+  const conditionalCityLink = (d: { city: string; location: string; imgSrc: string }) => d.city === "Berlin"
+    ? "https://cozy-voyage.lodgify.com/en/4578017/cozy-voyage-stilvolle-135qm-fur-9-personen"
+    : LODGIFY.city(locale, d.city)
+
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (window.innerWidth < 768) return;
@@ -110,7 +114,7 @@ const HomeBanner = () => {
                 {DESTINATIONS.map((d) => (
                   <Link
                     key={d.city}
-                    href={LODGIFY.city(locale, d.city)}
+                    href={conditionalCityLink(d)}
                     target="_blank"
                     className="text-white/80 hover:text-white text-base font-semibold tracking-wide uppercase transition-colors duration-200 underline-offset-4 hover:underline"
                     style={{ letterSpacing: '0.1em' }}
@@ -149,7 +153,7 @@ const HomeBanner = () => {
           {DESTINATIONS.map((d) => (
             <Link
               key={d.city}
-              href={LODGIFY.city(locale, d.city)}
+              href={conditionalCityLink(d)}
               target="_blank"
               className="group relative overflow-hidden block"
               style={{ aspectRatio: '16/9' }}
