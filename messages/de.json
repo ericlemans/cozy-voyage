@@ -127,5 +127,28 @@
     "corporateInquiry": "Firmenanfrage",
     "privacyPolicy": "Datenschutz",
     "copyright": "© {year} Cozy Voyage GmbH. Alle Rechte vorbehalten."
+  },
+  "about": {
+    "eyebrow": "Über uns",
+    "heroLine1": "Susi & Eric —",
+    "heroLine2": "Zwei Reisende,",
+    "heroLine3": "eine Idee.",
+    "intro1": "Cozy Voyage entstand aus einer gemeinsamen Leidenschaft: dem Reisen und dem Kontakt mit Menschen aus aller Welt. Unsere ersten Erfahrungen als Gastgeber machten wir in Berlin – zunächst, um uns während des Studiums zu unterstützen und gleichzeitig die Möglichkeit zu haben, Menschen mit unterschiedlichsten Hintergründen kennenzulernen.",
+    "intro2": "Mit wachsender Erfahrung und direktem Feedback unserer Gäste entwickelte sich die Idee immer weiter. Das Erfolgsrezept war klar: menschliche Nähe und echte Gastfreundschaft. Deshalb beschlossen wir, dies professionell weiterzuführen und aus unseren persönlichen Anfängen einen warmen und einladenden Service für alle Gäste unserer Apartments zu schaffen.",
+    "drivesHeading": "Was uns antreibt",
+    "pillar1Title": "Jedes Detail zählt",
+    "pillar1Body": "Beim Reisen machen die kleinen Dinge den Unterschied. Unsere Apartments sind darauf ausgelegt, dass Sie sich wie zu Hause fühlen. Schnelles WLAN in jedem Raum. Eine gut ausgestattete Küche, Badezimmer und Wohnbereich. Ein gemütlicher und geschmackvoll eingerichteter Ort zum Wohlfühlen.",
+    "pillar2Title": "Persönlich von Anfang bis Ende",
+    "pillar2Body": "Kein Callcenter, keine externe Hausverwaltung. Wenn Sie uns kontaktieren, sprechen Sie direkt mit uns. Wir kennen unsere Apartments bis ins kleinste Detail – denn wir haben jedes Möbelstück selbst ausgesucht.",
+    "pillar3Title": "Gäste sind Gäste, keine Transaktionen",
+    "pillar3Body": "Wir selbst waren schon unzählige Male Gäste. Wir wissen, wie es ist, nach einer langen Reise erschöpft anzukommen oder abends um 22 Uhr noch eine Empfehlung zu brauchen. Deshalb versuchen wir, die Gastgeber zu sein, die wir uns selbst immer gewünscht hätten.",
+    "imageCaption": "Berlin Ku'damm · 135m²",
+    "quoteLabel": "Unsere Philosophie",
+    "quote": "Wir vermieten nicht einfach Apartments. Wir teilen Orte, die wir lieben, mit Menschen, von denen wir hoffen, dass sie sie genauso lieben werden – und dass jeder Aufenthalt etwas Besonderes bleibt.",
+    "quoteFooter": "Susi & Eric · Gründer",
+    "ctaHeading": "Kommen Sie vorbei",
+    "ctaSubtext": "Berlin oder Dresden — wir freuen uns darauf, Sie willkommen zu heißen.",
+    "ctaBook": "Unsere Apartments ansehen",
+    "ctaContact": "Kontakt aufnehmen"
   }
 }

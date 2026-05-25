@@ -204,7 +204,7 @@ export default function CityGuide({ initialCity = 'berlin' }: { initialCity?: Ci
             <button
               key={c}
               onClick={() => setCity(c)}
-              className={`relative px-8 py-3.5 text-sm font-semibold uppercase transition-colors duration-200 ${
+              className={`cursor-pointer relative px-8 py-3.5 text-sm font-semibold uppercase transition-colors duration-200 ${
                 city === c ? 'text-gray-900' : 'text-gray-400 hover:text-gray-600'
               }`}
               style={{ letterSpacing: '0.15em' }}

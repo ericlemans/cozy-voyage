@@ -50,7 +50,7 @@ const HomeBanner = () => {
 
         {/* Eyebrow — bottom right */}
         <p
-          className="absolute xl:bottom-16 bottom-160 right-6 md:right-12 z-10 text-right xl:text-rose-400 text-rose-300 font-bold uppercase leading-none"
+          className="absolute xl:bottom-16 xl:top-auto top-36 right-6 md:right-12 z-10 text-right xl:text-rose-400 text-rose-300 font-bold uppercase leading-none"
           style={{ fontSize: 'clamp(2rem, 5vw, 4.5rem)', letterSpacing: '-0.02em' }}
         >
           {t('bottomRight')}<br />{t('bottomRightCities')}
@@ -70,7 +70,7 @@ const HomeBanner = () => {
             </h1>
 
             {/* Subheadline */}
-            <p className="text-white text-xl font-light mb-7 max-w-lg leading-relaxed">
+            <p className="text-white text-xl font-light mb-7 max-w-lg leading-relaxed hidden sm:block">
               {t('subheadline')}
             </p>
 

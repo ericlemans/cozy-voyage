@@ -127,5 +127,28 @@
     "corporateInquiry": "Corporate Inquiry",
     "privacyPolicy": "Privacy Policy",
     "copyright": "© {year} Cozy Voyage GmbH. All rights reserved."
+  },
+  "about": {
+    "eyebrow": "About Us",
+    "heroLine1": "Susi & Eric —",
+    "heroLine2": "Two travellers,",
+    "heroLine3": "one idea.",
+    "intro1": "Cozy Voyage started as a result of a shared passion: travelling and connecting with people all over the world. Our first experiences hosting guests happened in Berlin, as a means of supporting ourselves in our study times, as well as having the chance to connect with different people from diverse backgrounds.",
+    "intro2": "The idea started gaining traction as we gained experience and first hand feedback from what our guests really liked. The secret recipe was clear: human connection. That is why we decided to do this in a professional way, by extending our first raw and personal contacts into a warm and welcoming service to anyone that stays at our apartments.",
+    "drivesHeading": "What drives us",
+    "pillar1Title": "Every detail matters",
+    "pillar1Body": "When you travel, the little things define the experience. Our designs to make your experience a home away from home. Good Wi-Fi connection in every room. Well equipped kitchen, bathroom, and living room. A cozy, tasteful space that feels like home.",
+    "pillar2Title": "Personal from start to finish",
+    "pillar2Body": "There's no call centre, no third-party property manager. When you reach out, you're talking to us. We know our apartments inside out — because we chose every piece of furniture in them.",
+    "pillar3Title": "Guests as guests, not transactions",
+    "pillar3Body": "We've been guests ourselves hundreds of times. We know what it means to arrive tired after a long journey, or to need a recommendation at 10pm. We try to be the hosts we always wished we'd had.",
+    "imageCaption": "Berlin Ku'damm · 135m²",
+    "quoteLabel": "Our philosophy",
+    "quote": "We don't rent out apartments. We share the places we love with people we hope will love them just as much — and that every stay feels unique.",
+    "quoteFooter": "Susi & Eric · Founders",
+    "ctaHeading": "Come stay with us",
+    "ctaSubtext": "Berlin or Dresden — we'd love to have you.",
+    "ctaBook": "See Our Apartments",
+    "ctaContact": "Say Hello"
   }
 }
