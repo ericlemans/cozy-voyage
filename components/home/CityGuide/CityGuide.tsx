@@ -18,7 +18,7 @@ const GUIDE: Record<City, {
   parking: { name: string; address?: string; detail?: string }[] | null;
 }> = {
   berlin: {
-    image: '/assets/images/Berlin.webp',
+    image: '/assets/images/Berlin_cover.jpeg',
     accessibility: 'Ground floor apartment, accessed directly from the street. Two small steps at the entrance. Suitable for guests with reduced mobility.',
     visit: [
       { name: 'Free Walking Tour', url: 'https://www.neweuropetours.eu/berlin/' },
@@ -71,7 +71,7 @@ const GUIDE: Record<City, {
     ],
   },
   dresden: {
-    image: '/assets/images/Dresden.jpeg',
+    image: '/assets/images/Dresden_cover.jpeg',
     accessibility: 'Ground floor apartment with entrance directly on the street. Fully step-free — no steps at all.',
     visit: [
       { name: 'Zwinger Palace', detail: 'Baroque gardens & Old Masters Gallery', url: 'https://www.skd.museum/en/museums-institutions/zwinger/' },

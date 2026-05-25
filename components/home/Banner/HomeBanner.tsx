@@ -37,7 +37,7 @@ const HomeBanner = () => {
         <div ref={parallaxRef} className="absolute inset-0 scale-125 origin-top will-change-transform">
           <Image
             className="object-cover"
-            src="/assets/images/Berlin_Ks_1.jpeg"
+            src="/assets/images/Berlin_Keithstr_bg.webp"
             alt="Berlin Wittenbergplatz"
             fill
             priority

@@ -69,20 +69,16 @@
   },
   "businessTravel": {
     "label": "Für Geschäftsreisende",
-    "heading1": "Ihr Büro",
-    "heading2": "fern von zu Hause.",
-    "subtitle": "Konzipiert für Profis unterwegs. Rechnung auf Firmenname, business-taugliche Infrastruktur und flexibler Check-in — alles, was Sie für einen produktiven Aufenthalt in Berlin oder Dresden brauchen.",
+    "heading1": "Perfekt für",
+    "heading2": "Geschäftsunterkunft",
+    "subtitle": "Konzipiert für Profis unterwegs. Rechnung auf Firmenname und flexibler Check-in — alles, was Sie für einen produktiven Aufenthalt in Berlin oder Dresden brauchen.",
     "invoice": {
       "title": "Rechnung & MwSt-Ausweis",
       "description": "Buchen Sie auf Firmenaccount. Wir stellen Rechnungen mit vollständigem Mehrwertsteuerausweis aus — kompatibel mit deutschen Reisekostenabrechnungsanforderungen."
     },
     "wifi": {
       "title": "Business-WLAN",
-      "description": "300 Mbit/s Glasfaser in jeder Wohnung. Getestet für ganztägige Videokonferenzen, VPN-Zugang und mehrere gleichzeitige Geräte."
-    },
-    "workspace": {
-      "title": "Dedizierter Arbeitsplatz",
-      "description": "Jede Wohnung verfügt über einen richtigen Schreibtisch und ergonomisches Setup. Arbeiten Sie produktiv, ohne auf Wohnkomfort verzichten zu müssen."
+      "description": "Schnelle Internetverbindung in jedem Zimmer. Getestet für ganztägige Videokonferenzen, VPN-Zugang und mehrere gleichzeitige Geräte."
     },
     "teams": {
       "title": "Team- & Gruppenaufenthalte",
@@ -107,8 +103,8 @@
   },
   "gallery": {
     "label": "Unsere Wohnungen",
-    "heading1": "In",
-    "heading2": "Bildern",
+    "heading1": "Unsere Wohnungen",
+    "heading2": "in Bildern",
     "subtitle": "Mit einer Mischung aus Funktionalität und Design haben wir unsere Wohnungen so eingerichtet, dass Sie einen unvergesslichen Aufenthalt genießen können.",
     "scrollBack": "Zurück",
     "scrollForward": "Weiter",

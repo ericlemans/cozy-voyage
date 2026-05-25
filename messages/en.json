@@ -69,20 +69,16 @@
   },
   "businessTravel": {
     "label": "For Business Travelers",
-    "heading1": "Your office",
-    "heading2": "away from home.",
-    "subtitle": "Designed for professionals on the move. Invoice on company name, work-grade infrastructure, and flexible check-in — everything you need for a productive stay in Berlin or Dresden.",
+    "heading1": "Perfect for",
+    "heading2": "business accommodation.",
+    "subtitle": "Designed for professionals on the move. Invoice on company name, and flexible check-in — everything you need for a productive stay in Berlin or Dresden.",
     "invoice": {
       "title": "Invoice & VAT Receipt",
       "description": "Book for your company. We issue invoices with full VAT breakdown — compatible with German Reisekostenabrechnung requirements."
     },
     "wifi": {
       "title": "Work-Grade Wi-Fi",
-      "description": "300 Mbps fiber in every apartment. Tested for full-day video conferencing, VPN access, and multiple simultaneous devices."
-    },
-    "workspace": {
-      "title": "Dedicated Workspace",
-      "description": "Every apartment has a proper desk and ergonomic setup. Work productively without sacrificing your living space."
+      "description": "High-speed internet access in every room. Tested for full-day video conferencing, VPN access, and multiple simultaneous devices."
     },
     "teams": {
       "title": "Team & Group Stays",
@@ -107,8 +103,8 @@
   },
   "gallery": {
     "label": "Our Properties",
-    "heading1": "In",
-    "heading2": "Pictures",
+    "heading1": "Our apartmnets",
+    "heading2": "in pictures",
     "subtitle": "With a blend of functionality and design, we've furnished our apartments so you can enjoy an unforgettable stay.",
     "scrollBack": "Back",
     "scrollForward": "Forward",

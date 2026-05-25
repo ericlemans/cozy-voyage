@@ -7,7 +7,6 @@ import { FileTextIcon, WifiIcon, MonitorIcon, UsersIcon } from 'lucide-react';
 const features: { key: string; icon: React.ReactNode }[] = [
   { key: 'invoice', icon: <FileTextIcon size={32} /> },
   { key: 'wifi', icon: <WifiIcon size={32} /> },
-  { key: 'workspace', icon: <MonitorIcon size={32} /> },
   { key: 'teams', icon: <UsersIcon size={32} /> },
 ];
 
@@ -47,7 +46,7 @@ const BusinessTravel = () => {
         </div>
 
         {/* Feature grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-14">
           {features.map((feature, i) => (
             <div
               key={i}
