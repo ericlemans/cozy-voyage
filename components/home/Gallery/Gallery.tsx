@@ -13,26 +13,36 @@ const properties = [
     name: 'Berlin',
     location: "Ku'damm · Wittenbergplatz",
     images: [
-      { src: '/assets/images/Berlin.webp', alt: 'Berlin Stylish 135m² — Wohnzimmer' },
-      { src: '/assets/images/berlin_card.jpeg', alt: 'Berlin Stylish 135m² — Schlafzimmer' },
-      { src: '/assets/images/Berlin_Ks_1.jpeg', alt: 'Berlin Stylish 135m² — Küche' },
-      { src: '/assets/images/Berlin.webp', alt: 'Berlin Stylish 135m² — Foto 4' },
-      { src: '/assets/images/Berlin.webp', alt: 'Berlin Stylish 135m² — Foto 5' },
+      { src: '/assets/images/Berlin/IMG_0641 2.jpeg', alt: 'Berlin Ku\'damm 135m² — Küche' },
+      { src: '/assets/images/Berlin/IMG_0721 2.jpeg', alt: 'Berlin Ku\'damm 135m² — Kûche Detail' },
+      { src: '/assets/images/Berlin/IMG_0628 2.jpeg', alt: 'Berlin Ku\'damm 135m² — Wohnzimmer' },
+      { src: '/assets/images/Berlin/IMG_3384.jpeg', alt: 'Berlin Ku\'damm 135m² — Wohnzimmer Detail' },
+      { src: '/assets/images/Berlin/c52fbfcd-9dc6-4918-a2ed-e1ea1df784df.jpg', alt: 'Berlin Ku\'damm 135m² — Flur' },
+      { src: '/assets/images/Berlin/e5cab91d-f196-4072-9f41-d03d731e6d8e.jpg', alt: 'Berlin Ku\'damm 135m² — Schlafzimmer 1' },
+      { src: '/assets/images/Berlin/a1ae049a-4fb8-4e19-838a-e1dd8238e6c6.jpg', alt: 'Berlin Ku\'damm 135m² — Schlafzimmer 2' },
+      { src: '/assets/images/Berlin/IMG_3406.jpeg', alt: 'Berlin Ku\'damm 135m² — Schlafzimmer 3' },
+      { src: '/assets/images/Berlin/IMG_0704 2.jpeg', alt: 'Berlin Ku\'damm 135m² — Badezimmer' },
+      { src: '/assets/images/Berlin/IMG_3446.jpeg', alt: 'Berlin Ku\'damm 135m² — Foto 10' },
+      { src: '/assets/images/Berlin/2af9adfa-c22d-4553-9977-d17637251d63.jpg', alt: 'Berlin Ku\'damm 135m² — Foto 11' },
+      { src: '/assets/images/Berlin/026d2888-c2a9-4de1-b2f5-1a957e37a27d.jpg', alt: 'Berlin Ku\'damm 135m² — Foto 12' },
+      { src: '/assets/images/Berlin/c18d6bca-98b0-4b5a-9a62-ea332917463e.jpg', alt: 'Berlin Ku\'damm 135m² — Foto 14' },
     ],
   },
   {
-    name: 'Dresden',
-    location: 'Altstadt · Frauenkirche',
+    name: 'Dresden — Frauenkirche',
+    location: 'Innere Altstadt · Frauenkirche',
     images: [
-      { src: '/assets/images/Dresden.jpeg', alt: 'Dresden Frauenkirche — Wohnzimmer' },
-      { src: '/assets/images/Dresden.avif', alt: 'Dresden Frauenkirche — Aussicht' },
-      { src: '/assets/images/dresden small_card.jpeg', alt: 'Dresden Frauenkirche — Für 2–4 Personen' },
-      { src: '/assets/images/dresden big_card.jpeg', alt: 'Dresden Frauenkirche — Für 4–6 Personen' },
-      { src: '/assets/images/dresden 8 people_card.jpeg', alt: 'Dresden Altstadt — Für 8 Personen' },
-      { src: '/assets/images/Dresden.jpeg', alt: 'Dresden Frauenkirche — Foto 6' },
-      { src: '/assets/images/Dresden.jpeg', alt: 'Dresden Frauenkirche — Foto 7' },
+      { src: '/assets/images/Dresden_big/1494fe87-ff7a-42e9-a3ea-c716fc5eea49.jpeg', alt: 'Dresden Frauenkirche — Esszimmer' },
+      { src: '/assets/images/Dresden_small/42f52e5a-e8ee-4812-a3fb-180e68a19ebe.jpeg', alt: 'Dresden Frauenkirche — Esszimmer' },
+      { src: '/assets/images/Dresden_small/cb252203-0040-4487-91e9-fe7b7ad9f0d6.jpeg', alt: 'Dresden Frauenkirche — Schlafzimmer' },
+      { src: '/assets/images/Dresden_small/8d13ac2b-771e-44a0-8fa6-22d05ee23ce1.avif', alt: 'Dresden Frauenkirche — Wohnzimmer' },
+      { src: '/assets/images/Dresden_small/3a1a4f82-058b-40c0-80d6-ae7403aadeeb.jpeg', alt: 'Dresden Frauenkirche — Nachbarschaft' },
+      { src: '/assets/images/Dresden_small/dbaf4cd9-b965-4763-ae90-874d9ff69ea4.jpeg', alt: 'Dresden Frauenkirche — Badezimmer' },
+      { src: '/assets/images/Dresden_small/55c82376-f541-4f94-996b-672fb8b0cbd2.jpeg', alt: 'Dresden Frauenkirche — Küche' },
+      { src: '/assets/images/Dresden_small/04aefb64-ab6e-4f27-a5fa-593e5d6baebb.avif', alt: 'Dresden Frauenkirche — Wohnbereich' },
+      { src: '/assets/images/Dresden_small/4f0ab3f8-5f9f-40ad-bfd2-354a842dba93.avif', alt: 'Dresden Frauenkirche — Foto 7' },
     ],
-  },
+  }
 ] as const;
 
 type Property = (typeof properties)[number];
@@ -104,6 +114,7 @@ const PropertyRow = ({
             <Image
               src={img.src}
               alt={img.alt}
+              quality={60}
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
               style={{ transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
