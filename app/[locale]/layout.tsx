@@ -8,6 +8,7 @@ import 'leaflet/dist/leaflet.css';
 import Header from '@/components/shared/Header/Header';
 import Footer from '@/components/shared/Footer/Footer';
 import { routing } from '@/routing';
+import { GoogleTagManager } from '@next/third-parties/google';
 
 const leagueSpartanSans = League_Spartan({ subsets: ['latin'] });
 
@@ -15,8 +16,8 @@ const SITE_URL = 'https://cozy-voyage.com';
 const OG_IMAGE = `${SITE_URL}/assets/images/Berlin_Ks_1.jpeg`;
 
 export async function generateMetadata({
-  params,
-}: {
+                                         params,
+                                       }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
@@ -71,9 +72,9 @@ export async function generateMetadata({
 }
 
 export default async function LocaleLayout({
-  children,
-  params,
-}: {
+                                             children,
+                                             params,
+                                           }: {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }) {
@@ -84,15 +85,16 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body className={leagueSpartanSans.className}>
-        <NextIntlClientProvider messages={messages}>
-          <main className="mx-auto">
-            <Header />
-            {children}
-          </main>
-          <Footer />
-        </NextIntlClientProvider>
-      </body>
+    <body className={leagueSpartanSans.className}>
+    <NextIntlClientProvider messages={messages}>
+      <main className="mx-auto">
+        <Header />
+        {children}
+      </main>
+      <Footer />
+    </NextIntlClientProvider>
+    <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || 'G-34D5LK3M4Z'} />
+    </body>
     </html>
   );
 }
