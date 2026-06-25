@@ -17,7 +17,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t cozy-voyage:latest .
+          docker build -t cozy-voyage:latest --build-arg NEXT_PUBLIC_GA_ID=${{ vars.NEXT_PUBLIC_GA_ID }} .
 
       - name: Save Docker image as tar
         run: |

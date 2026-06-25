@@ -8,7 +8,7 @@ import 'leaflet/dist/leaflet.css';
 import Header from '@/components/shared/Header/Header';
 import Footer from '@/components/shared/Footer/Footer';
 import { routing } from '@/routing';
-import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const leagueSpartanSans = League_Spartan({ subsets: ['latin'] });
 

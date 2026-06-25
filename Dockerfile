@@ -10,6 +10,8 @@ RUN npm ci
 # Copy everything and build Next.js
 COPY . .
 RUN rm -rf .next
+ARG NEXT_PUBLIC_GA_ID
+ENV NEXT_PUBLIC_GA_ID=$NEXT_PUBLIC_GA_ID
 RUN npm run build
 
 # Prune dev deps after building
