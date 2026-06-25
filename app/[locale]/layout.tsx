@@ -8,7 +8,7 @@ import 'leaflet/dist/leaflet.css';
 import Header from '@/components/shared/Header/Header';
 import Footer from '@/components/shared/Footer/Footer';
 import { routing } from '@/routing';
-import { GoogleTagManager } from '@next/third-parties/google';
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 
 const leagueSpartanSans = League_Spartan({ subsets: ['latin'] });
 
@@ -93,7 +93,7 @@ export default async function LocaleLayout({
       </main>
       <Footer />
     </NextIntlClientProvider>
-    <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || 'G-34D5LK3M4Z'} />
+    <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || 'G-34D5LK3M4Z'} />
     </body>
     </html>
   );
