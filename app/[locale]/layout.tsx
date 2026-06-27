@@ -93,7 +93,9 @@ export default async function LocaleLayout({
       </main>
       <Footer />
     </NextIntlClientProvider>
-    <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || 'G-34D5LK3M4Z'} />
+    {process.env.NODE_ENV !== 'development' &&
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || 'G-34D5LK3M4Z'} />
+    }
     </body>
     </html>
   );
