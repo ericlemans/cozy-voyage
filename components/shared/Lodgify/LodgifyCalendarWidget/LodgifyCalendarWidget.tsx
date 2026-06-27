@@ -1,7 +1,12 @@
 import React from 'react';
 import Script from 'next/script';
 
-const LodgifyCalendarWidget = () => {
+type Props = {
+  rentalId: string;
+  locale: string;
+};
+
+const LodgifyCalendarWidget = ({ rentalId, locale }: Props) => {
   return (
     <div id="booking" style={{ scrollMarginTop: '100px' }}>
       <style>{`
@@ -42,10 +47,10 @@ const LodgifyCalendarWidget = () => {
                 `}</style>
       <div
         id="lodgify-book-now-box"
-        data-rental-id="658898"
+        data-rental-id={rentalId}
         data-website-id="568678"
         data-slug="cozy-voyage"
-        data-language-code="de"
+        data-language-code={locale}
         data-new-tab="true"
         data-version="stable"
         data-currency-code="EUR"

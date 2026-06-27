@@ -4,6 +4,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
+import { useParams, redirect } from 'next/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Keyboard } from 'swiper/modules';
 import 'swiper/css';
@@ -20,21 +21,7 @@ import {
   UtensilsIcon,
 } from 'lucide-react';
 import LodgifyCalendarWidget from '@/components/shared/Lodgify/LodgifyCalendarWidget/LodgifyCalendarWidget';
-
-const IMAGES = [
-  { src: '/assets/images/Berlin/IMG_0628 2.jpeg', alt: 'Living Room' },
-  { src: '/assets/images/Berlin/IMG_0721 2.jpeg', alt: 'Kitchen' },
-  { src: '/assets/images/Berlin/IMG_3384.jpeg', alt: 'Living Room Detail' },
-  { src: '/assets/images/Berlin/e5cab91d-f196-4072-9f41-d03d731e6d8e.jpg', alt: 'Bedroom 1' },
-  { src: '/assets/images/Berlin/a1ae049a-4fb8-4e19-838a-e1dd8238e6c6.jpg', alt: 'Bedroom 2' },
-  { src: '/assets/images/Berlin/IMG_3406.jpeg', alt: 'Bedroom 3' },
-  { src: '/assets/images/Berlin/IMG_0704 2.jpeg', alt: 'Bathroom' },
-  { src: '/assets/images/Berlin/c52fbfcd-9dc6-4918-a2ed-e1ea1df784df.jpg', alt: 'Hallway' },
-  { src: '/assets/images/Berlin/IMG_3446.jpeg', alt: 'Kitchen Detail' },
-  { src: '/assets/images/Berlin/2af9adfa-c22d-4553-9977-d17637251d63.jpg', alt: 'Coffee Station' },
-  { src: '/assets/images/Berlin/026d2888-c2a9-4de1-b2f5-1a957e37a27d.jpg', alt: 'Detail' },
-  { src: '/assets/images/Berlin/c18d6bca-98b0-4b5a-9a62-ea332917463e.jpg', alt: 'Detail' },
-] as const;
+import { PROPERTIES, PROPERTY_IDS, type PropertyId } from '@/lib/properties';
 
 const HIGHLIGHT_ICONS = [
   (
@@ -55,10 +42,14 @@ const HIGHLIGHT_ICONS = [
   ),
 ];
 
+type ImageItem = { src: string; alt: string };
+
 const Lightbox = ({
+  images,
   initialIndex,
   onClose,
 }: {
+  images: ImageItem[];
   initialIndex: number;
   onClose: () => void;
 }) => {
@@ -101,10 +92,10 @@ const Lightbox = ({
           navigation
           keyboard={{ enabled: true }}
           initialSlide={initialIndex}
-          loop={IMAGES.length > 1}
+          loop={images.length > 1}
           className="lightbox-swiper"
         >
-          {IMAGES.map((img, i) => (
+          {images.map((img, i) => (
             <SwiperSlide key={i}>
               <div className="relative flex items-center justify-center" style={{ height: '80vh' }}>
                 <Image
@@ -128,8 +119,17 @@ const Lightbox = ({
 export default function PropertyPage() {
   const locale = useLocale();
   const t = useTranslations('propertyDetails');
+  const params = useParams();
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const closeLightbox = useCallback(() => setLightboxIndex(null), []);
+
+  const id = params?.id as string;
+  if (!PROPERTY_IDS.includes(id as PropertyId)) {
+    redirect('/');
+  }
+
+  const propertyId = id as PropertyId;
+  const property = PROPERTIES[propertyId];
 
   const AMENITIES = [
     { icon: <WifiIcon size={18} />, label: t('amenity0') },
@@ -144,16 +144,16 @@ export default function PropertyPage() {
   ];
 
   const HIGHLIGHTS = [
-    { icon: HIGHLIGHT_ICONS[0], title: t('highlight0Title'), body: t('highlight0Body') },
-    { icon: HIGHLIGHT_ICONS[1], title: t('highlight1Title'), body: t('highlight1Body') },
-    { icon: HIGHLIGHT_ICONS[2], title: t('highlight2Title'), body: t('highlight2Body') },
+    { icon: HIGHLIGHT_ICONS[0], title: t(`${propertyId}.highlight0Title`), body: t(`${propertyId}.highlight0Body`) },
+    { icon: HIGHLIGHT_ICONS[1], title: t(`${propertyId}.highlight1Title`), body: t(`${propertyId}.highlight1Body`) },
+    { icon: HIGHLIGHT_ICONS[2], title: t(`${propertyId}.highlight2Title`), body: t(`${propertyId}.highlight2Body`) },
   ];
 
   const STATS = [
-    { value: '135m²', label: t('statSize') },
-    { value: '9', label: t('statGuests') },
-    { value: '3', label: t('statBedrooms') },
-    { value: '2', label: t('statBathrooms') },
+    { value: `${property.sqm}m²`, label: t('statSize') },
+    { value: String(property.guests), label: t('statGuests') },
+    { value: String(property.bedrooms), label: t('statBedrooms') },
+    { value: String(property.bathrooms), label: t('statBathrooms') },
   ];
 
   return (
@@ -161,8 +161,8 @@ export default function PropertyPage() {
       {/* ── HERO ── */}
       <section className="relative min-h-screen bg-black overflow-hidden">
         <Image
-          src="/assets/images/Berlin_cover.jpeg"
-          alt="Cozy Voyage Berlin Ku'damm"
+          src={property.coverImage}
+          alt={`Cozy Voyage ${property.city}`}
           fill
           priority
           className="object-cover"
@@ -196,15 +196,15 @@ export default function PropertyPage() {
                   className="text-rose-400 font-medium uppercase mb-3"
                   style={{ letterSpacing: '0.25em', fontSize: '12px' }}
                 >
-                  Ku&#39;damm · Wittenbergplatz · Berlin
+                  {t(`${propertyId}.location`)}
                 </p>
 
                 <h1
                   className="text-white font-bold leading-none mb-6"
                   style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', letterSpacing: '-0.02em', lineHeight: 1.0 }}
                 >
-                  {t('heroTitle1')}<br />
-                  <span className="text-rose-400">{t('heroTitle2')}</span>
+                  {t(`${propertyId}.heroTitle1`)}<br />
+                  <span className="text-rose-400">{t(`${propertyId}.heroTitle2`)}</span>
                 </h1>
 
                 <div className="flex flex-wrap gap-3 mb-8">
@@ -238,7 +238,7 @@ export default function PropertyPage() {
                 <h2 className="text-white font-bold">
                   {t('bookNow')}
                 </h2>
-                <LodgifyCalendarWidget />
+                <LodgifyCalendarWidget rentalId={property.rentalId} locale={locale} />
               </div>
 
             </div>
@@ -257,20 +257,20 @@ export default function PropertyPage() {
         <div className="mx-auto mb-8 max-w-[1200px] flex items-end justify-between">
           <div>
             <p className="mb-1 text-[0.6rem] font-medium uppercase text-rose-500" style={{ letterSpacing: '0.2em' }}>
-              Ku&#39;damm · Wittenbergplatz
+              {t(`${propertyId}.location`)}
             </p>
             <h2
               className="font-bold leading-none text-white"
               style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', letterSpacing: '-0.01em' }}
             >
-              {t('galleryHeading')}
+              {t(`${propertyId}.galleryHeading`)}
             </h2>
           </div>
-          <span className="text-white/30 text-sm">{t('galleryCount', { count: IMAGES.length })}</span>
+          <span className="text-white/30 text-sm">{t('galleryCount', { count: property.images.length })}</span>
         </div>
 
         <div className="-mx-6 flex snap-x snap-mandatory gap-[6px] overflow-x-auto pb-1 pl-6 pr-6 md:-mx-10 md:pl-10 md:pr-10 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {IMAGES.map((img, i) => (
+          {property.images.map((img, i) => (
             <button
               key={img.src}
               onClick={() => setLightboxIndex(i)}
@@ -303,19 +303,19 @@ export default function PropertyPage() {
                 className="font-bold leading-none"
                 style={{ fontSize: 'clamp(2.25rem, 5vw, 4rem)', letterSpacing: '-0.02em', color: '#111', lineHeight: 1.05 }}
               >
-                {t('apartmentHeading1')}<br />{t('apartmentHeading2')}
+                {t(`${propertyId}.apartmentHeading1`)}<br />{t(`${propertyId}.apartmentHeading2`)}
               </h2>
               <p className="text-gray-600 max-w-sm md:text-right leading-relaxed" style={{ fontSize: '16px' }}>
-                {t('apartmentSubtitle')}
+                {t(`${propertyId}.apartmentSubtitle`)}
               </p>
             </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
             <div className="lg:col-span-7 space-y-6">
-              <p className="text-gray-700 leading-relaxed text-lg">{t('apartmentDesc1')}</p>
-              <p className="text-gray-600 leading-relaxed">{t('apartmentDesc2')}</p>
-              <p className="text-gray-600 leading-relaxed">{t('apartmentDesc3')}</p>
+              <p className="text-gray-700 leading-relaxed text-lg">{t(`${propertyId}.apartmentDesc1`)}</p>
+              <p className="text-gray-600 leading-relaxed">{t(`${propertyId}.apartmentDesc2`)}</p>
+              <p className="text-gray-600 leading-relaxed">{t(`${propertyId}.apartmentDesc3`)}</p>
             </div>
 
             <div className="lg:col-span-5">
@@ -347,11 +347,11 @@ export default function PropertyPage() {
                 className="font-bold leading-none text-white"
                 style={{ fontSize: 'clamp(2.25rem, 5vw, 4rem)', letterSpacing: '-0.02em', lineHeight: 1.05 }}
               >
-                {t('highlightsHeading1')}<br />
-                <span className="text-rose-400">{t('highlightsHeading2')}</span>
+                {t(`${propertyId}.highlightsHeading1`)}<br />
+                <span className="text-rose-400">{t(`${propertyId}.highlightsHeading2`)}</span>
               </h2>
               <p className="text-white/70 font-light leading-relaxed md:max-w-sm md:text-right" style={{ fontSize: '16px' }}>
-                {t('highlightsSubtitle')}
+                {t(`${propertyId}.highlightsSubtitle`)}
               </p>
             </div>
           </div>
@@ -400,7 +400,7 @@ export default function PropertyPage() {
       </section>
 
       {lightboxIndex !== null && (
-        <Lightbox initialIndex={lightboxIndex} onClose={closeLightbox} />
+        <Lightbox images={property.images} initialIndex={lightboxIndex} onClose={closeLightbox} />
       )}
     </div>
   );

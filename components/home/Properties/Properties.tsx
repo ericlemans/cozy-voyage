@@ -52,7 +52,7 @@ const Properties = () => {
   const properties = PROPERTY_DATA.map(({ id, ...rest }) => ({
     ...rest,
     title: tTitles(id),
-    href: LODGIFY[id](locale),
+    href: `/property-details/${id}`,
   }));
 
   const [featured, ...rest] = properties;
